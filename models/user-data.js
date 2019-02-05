@@ -8,8 +8,17 @@ const UserDataSchema = new Schema(
     imc: {type: Decimal32},
     bodyFat: {type: Decimal32},
     water: {type: Number},
+    // HOW TO STORE DIET TYPE SPLIT POURCENTAGE ?
+    // V1
+    diet: { 
+      balanced:{
+        protein:25,
+        carbs:50,
+        lipid:25,
+      }
+    },
+    // V2 STORE SPLIT POURCENTAGE IN THE CODE ? HOW TO MAP ? if diet.value === "Balanced" ?
     diet: {
-      // Comment MAPPER les valeurs des macro avec chaque enum à part dans le code ?
       type: String,
       enum: [
         "Balanced",
@@ -22,7 +31,11 @@ const UserDataSchema = new Schema(
         "Ketogenic"
       ]
     },
-    dailyNeed: {type: Array},
+    dailyNeed: {
+      protein: {type: Number},
+      carbs: {type: Number},
+      lipid: {type: Number}
+    },
     mealNeed: {type: Array}
   },
   {timestamps: true}
