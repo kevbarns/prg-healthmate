@@ -4,5 +4,48 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
+}
+
+.hero {
+  background: url("../images/1.jpg") center / cover ;
+}
+
+@media (max-width: 1024px) {
+  .hero {
+    background: url("../images/1.jpg") center / cover ;
+  }
+}
+@media (max-width: 768px) {
+  .hero {
+    background: url("../images/1.jpg") center / cover ;
+  }
+}
+
+
+// HELPERS 
+
+.center, .center-column, .top, .right, .bottom, .left {
+	display: flex !important;
+	justify-content: center;
+	align-items: center;
+}
+
+.center-column {
+    flex-direction: column;
+}
+
+.top    { align-items:     flex-start; }
+.right  { justify-content: flex-end;   }
+.bottom { align-items:     flex-end;   }
+.left   { justify-content: flex-start; }
+
+.single-spaced, .single-spaced * {
+    line-height: 1;
+}
+
+@media (max-width: 1024px) {
+	.desktop {
+		display: none !important;
+	}
 }
