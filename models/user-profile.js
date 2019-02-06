@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const UserProfileSchema = new Schema(
   {
-    username: [Schema.Types.ObjectId],
+    username_id: [{type: ObjectId, ref: "User"}],
     height: {type: Decimal32, required: true},
     weight: {type: Decimal32, required: true},
     gender: {type: String, enum: ["Man", "Woman"]},

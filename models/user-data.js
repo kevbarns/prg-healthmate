@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const UserDataSchema = new Schema(
   {
-    username: [Schema.Types.ObjectId],
+    username_id: [{type: ObjectId, ref: 'User'}],
     basalMetabolism: {type: Number},
     imc: {type: Decimal32},
     bodyFat: {type: Decimal32},
@@ -31,6 +31,7 @@ const UserDataSchema = new Schema(
         "Ketogenic"
       ]
     },
+    // V3
     dailyNeed: {
       protein: {type: Number},
       carbs: {type: Number},
