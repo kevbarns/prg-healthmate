@@ -3,9 +3,9 @@ const Schema = mongoose.Schema;
 
 const UserProfileSchema = new Schema(
   {
-    username_id: [{type: ObjectId, ref: "User"}],
-    height: {type: Decimal32, required: true},
-    weight: {type: Decimal32, required: true},
+    username_id: [{type: Schema.Types.ObjectId, ref: "User"}],
+    height: {type: Number, required: true},
+    weight: {type: Number, required: true},
     gender: {type: String, enum: ["Man", "Woman"]},
     activity: {
       type: String,
