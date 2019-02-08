@@ -5,18 +5,26 @@ body {
 a {
   color: #00b7ff; }
 
-.hero {
+.hero-body {
   background: url("../images/1.jpg") center/cover; }
 
 @media (max-width: 1024px) {
-  .hero {
+  .hero-body {
     background: url("../images/1.jpg") center/cover; } }
 
 @media (max-width: 768px) {
-  .hero {
+  .hero-body {
     background: url("../images/1.jpg") center/cover; } }
 
-.center, .center-column, .top, .right, .bottom, .left {
+.hero-header {
+  z-index: 1; }
+
+.center,
+.center-column,
+.top,
+.right,
+.bottom,
+.left {
   display: flex !important;
   justify-content: center;
   align-items: center; }
@@ -36,7 +44,8 @@ a {
 .left {
   justify-content: flex-start; }
 
-.single-spaced, .single-spaced * {
+.single-spaced,
+.single-spaced * {
   line-height: 1; }
 
 @media (max-width: 1024px) {

@@ -7,45 +7,62 @@ a {
   color: #00b7ff;
 }
 
-.hero {
-  background: url("../images/1.jpg") center / cover ;
+.hero-body {
+  background: url("../images/1.jpg") center / cover;
 }
 
 @media (max-width: 1024px) {
-  .hero {
-    background: url("../images/1.jpg") center / cover ;
+  .hero-body {
+    background: url("../images/1.jpg") center / cover;
   }
 }
 @media (max-width: 768px) {
-  .hero {
-    background: url("../images/1.jpg") center / cover ;
+  .hero-body {
+    background: url("../images/1.jpg") center / cover;
   }
 }
 
+.hero-header {
+  z-index: 1;
+}
 
-// HELPERS 
+// HELPERS
 
-.center, .center-column, .top, .right, .bottom, .left {
-	display: flex !important;
-	justify-content: center;
-	align-items: center;
+.center,
+.center-column,
+.top,
+.right,
+.bottom,
+.left {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
 }
 
 .center-column {
-    flex-direction: column;
+  flex-direction: column;
 }
 
-.top    { align-items:     flex-start; }
-.right  { justify-content: flex-end;   }
-.bottom { align-items:     flex-end;   }
-.left   { justify-content: flex-start; }
+.top {
+  align-items: flex-start;
+}
+.right {
+  justify-content: flex-end;
+}
+.bottom {
+  align-items: flex-end;
+}
+.left {
+  justify-content: flex-start;
+}
 
-.single-spaced, .single-spaced * {
-    line-height: 1;
+.single-spaced,
+.single-spaced * {
+  line-height: 1;
 }
 
 @media (max-width: 1024px) {
-	.desktop {
-		display: none !important;
-	}
+  .desktop {
+    display: none !important;
+  }
 }

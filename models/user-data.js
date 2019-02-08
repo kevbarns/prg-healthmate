@@ -3,18 +3,18 @@ const Schema = mongoose.Schema;
 
 const UserDataSchema = new Schema(
   {
-    username_id: [{type: ObjectId, ref: 'User'}],
+    username_id: [{type: Schema.Types.ObjectId, ref: "User"}],
     basalMetabolism: {type: Number},
-    imc: {type: Decimal32},
-    bodyFat: {type: Decimal32},
+    imc: {type: Number},
+    bodyFat: {type: Number},
     water: {type: Number},
     // HOW TO STORE DIET TYPE SPLIT POURCENTAGE ?
     // V1
-    diet: { 
-      balanced:{
-        protein:25,
-        carbs:50,
-        lipid:25,
+    diet: {
+      balanced: {
+        protein: 25,
+        carbs: 50,
+        lipid: 25
       }
     },
     // V2 STORE SPLIT POURCENTAGE IN THE CODE ? HOW TO MAP ? if diet.value === "Balanced" ?
