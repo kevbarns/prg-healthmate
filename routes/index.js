@@ -46,4 +46,16 @@ router.get('/', (req, res, next) => {
 // basalMetabolism * % diet.enum.carbs.value = MACRO-CARBS (dailyNeed.carbs)
 // basalMetabolism * % diet.enum.lipid.value = MACRO-CARBS (dailyNeed.lipid)
 
+// Pour le seed file avec les valeurs
+// enum: [
+//   "Balanced",
+//   "Moderate",
+//   "Fitness",
+//   "Mediterranean",
+//   "Low Fat",
+//   "Low Carbs",
+//   "Body Builder",
+//   "Ketogenic"
+// ]
+
 module.exports = router;

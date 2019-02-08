@@ -1,38 +1,52 @@
-<div class="dashboard">
-  <!-- left panel -->
-  <div class="dashboard-panel is-medium has-thick-padding has-background-grey-lighter is-hidden-mobile">
-    <div class="has-text-centered">
-      <p>MY HEALTH MATE</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="/stylesheets/bulma-dashboard.min.css">
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+</head>
+
+<body>
+  <div class="dashboard">
+    <!-- left panel -->
+    <div class="dashboard-panel is-medium has-thick-padding is-hidden-mobile" style="background-color: lightgray;">
+      <div class="has-text-centered">
+        <p>MY HEALTH MATE</p>
+      </div>
+      <hr class="has-background-grey" />
+
+      <aside class="menu has-text-white">
+        <p class="menu-label">
+          General
+        </p>
+        <ul class="menu-list">
+          <li><a>Recipes</a></li>
+          <li><a>My Calendar</a></li>
+          <li><a>Favorite Recipes ❤️</a></li>
+        </ul>
+        <p class="menu-label">
+          Title
+        </p>
+        <ul class="menu-list">
+          <li><a>Menu</a></li>
+          <li>
+            <a class="is-active">Menu active</a>
+            <ul>
+              <li><a>Submenu 1</a></li>
+            </ul>
+          </li>
+        </ul>
+      </aside>
     </div>
-    <hr class="has-background-grey" />
 
-    <aside class="menu has-text-white">
-      <p class="menu-label">
-        General
-      </p>
-      <ul class="menu-list">
-        <li><a>Recipes</a></li>
-        <li><a>My Calendar</a></li>
-        <li><a>Favorite Recipes ❤️</a></li>
-      </ul>
-      <p class="menu-label">
-        Title
-      </p>
-      <ul class="menu-list">
-        <li><a>Menu</a></li>
-        <li>
-          <a class="is-active">Menu active</a>
-          <ul>
-            <li><a>Submenu 1</a></li>
-          </ul>
-        </li>
-      </ul>
-    </aside>
-  </div>
-
-  <!-- main section -->
-  <div class="dashboard-main is-scrollable">
-    {{!-- <nav class="navbar is-fixed-top is-dark">
+    <!-- main section -->
+    <div class="dashboard-main is-scrollable">
+      {{!-- <nav class="navbar is-fixed-top is-dark">
       <div class="navbar-menu">
         <div class="navbar-end">
           <span class="navbar-item">
@@ -42,24 +56,24 @@
       </div>
     </nav> --}}
 
-    <section class="section">
-      {{!-- <p class="title is-size-2 is-spaced">
+      <section class="section">
+        {{!-- <p class="title is-size-2 is-spaced">
         My Dashboard
       </p> --}}
 
         {{{body}}}
 
-      <p class="subtitle is-size-3">
-        {{!--  --}}
-      </p>
+        <p class="subtitle is-size-3">
+          {{!--  --}}
+        </p>
 
-      <section class="content is-medium">
-        {{!--  --}}
+        <section class="content is-medium">
+          {{!--  --}}
+        </section>
       </section>
-    </section>
 
-    <!-- the footer will take up all unused space at the bottom -->
-    {{!-- <footer class="footer has-background-black has-text-white">
+      <!-- the footer will take up all unused space at the bottom -->
+      {{!-- <footer class="footer has-background-black has-text-white">
       <p class="is-size-2">
         Footer
       </p>
@@ -68,23 +82,27 @@
         Notice that this entire space is filled up.
       </p>
     </footer> --}}
+    </div>
+
+    <!-- right panel -->
+    <div class="dashboard-panel is-small is-scrollable" style="background-color: lightgray;">
+      <p class="is-size-4 has-text-weight-light">
+        Image Profile
+      </p>
+
+      <hr class="has-background-grey" />
+
+      <a class="is-size-4">
+        User details
+      </a>
+      <br />
+      <a class="is-size-4">
+        User data
+      </a>
+      <br />
+    </div>
   </div>
+  <script src="/javascripts/script.js"></script>
+</body>
 
-  <!-- right panel -->
-  <div class="dashboard-panel is-small has-background-light is-scrollable">
-    <p class="is-size-4 has-text-weight-light">
-      Image Profile
-    </p>
-
-    <hr class="has-background-grey" />
-
-    <a class="is-size-4">
-      User details
-    </a>
-    <br />
-    <a class="is-size-4">
-      User data 
-    </a>
-    <br />
-  </div>
-</div>
+</html>
