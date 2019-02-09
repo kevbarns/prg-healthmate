@@ -29,13 +29,14 @@ router.post("/process-signup", (req, res, next) => {
     .catch(err => next(err));
 });
 
-router.post("/signup-login", (res, req, next) => {
+router.post("/process-login", (req, res, next) => {
   const { userName, password } = req.body;
 
   User.findOne({ userName: { $eq: userName } })
     .then(userDoc => {
       if (!userDoc) {
         // req.flash ?
+        console.log("prob d'ID");
         res.redirect("/signup-login");
         return;
       }
@@ -44,6 +45,7 @@ router.post("/signup-login", (res, req, next) => {
 
       if (!bcrypt.compareSync(password, encryptedPassword)) {
         // req.flash ?
+        console.log("prob de mdp");
         res.redirect("/signup-login");
         return;
       }
