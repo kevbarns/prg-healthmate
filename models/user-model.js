@@ -1,13 +1,13 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const UserSchema = new Schema(
+const userSchema = new Schema(
   {
-    fullName: { type: String, required: true },
-    userName: { type: String, required: true, unique: true },
+    fullName: { type: String, required: true, minlength: 2 },
+    userName: { type: String, required: true, unique: true, minlength: 2 },
     email: { type: String, required: true, unique: true, match: /^.+@.+\..+$/ },
     encryptedPassword: { type: String, required: true },
-    bio: { type: String },
+    bio: { type: String, minlength: 10 },
     image: { type: String },
     role: {
       type: String,
@@ -21,6 +21,6 @@ const UserSchema = new Schema(
   }
 );
 
-const User = mongoose.model("User", UserSchema);
+const User = mongoose.model("User", userSchema);
 
 module.exports = User;

@@ -1,6 +1,6 @@
 const passport = require("passport");
 
-const User = require("../models/user-model");
+const User = require("../models/user-model.js");
 
 passport.serializeUser((userDoc, done) => {
   done(null, userDoc._id);
@@ -11,5 +11,5 @@ passport.deserializeUser((userId, done) => {
     .then(userDoc => {
       done(null, userDoc);
     })
-    .catch(err => next(err));
+    .catch(err => done(err));
 });

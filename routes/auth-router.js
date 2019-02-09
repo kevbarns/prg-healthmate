@@ -15,6 +15,7 @@ router.post("/process-signup", (req, res, next) => {
   if (!password || !password.match(/[0-9]/)) {
     // req.flash ?
     res.redirect("/signup-login");
+    console.log("password problem");
     return;
   }
 
@@ -22,7 +23,7 @@ router.post("/process-signup", (req, res, next) => {
 
   User.create({ fullName, userName, email, encryptedPassword, bio, image })
     .then(() => {
-      // req.flash ?
+      // req.flash("error", "Probleme de mdp.");
       res.redirect("/dashboard");
     })
     .catch(err => next(err));
