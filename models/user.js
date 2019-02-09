@@ -3,11 +3,18 @@ const Schema = mongoose.Schema;
 
 const UserSchema = new Schema(
   {
-    fullname: {type: String, required: true},
-    password: {type: String, required: true, unique: true, minlength: 8},
-    username: {type: String, required: true, unique: true},
-    bio: {type: String},
-    image: {type: String}
+    fullName: { type: String, required: true },
+    userName: { type: String, required: true, unique: true },
+    email: { type: String, required: true, unique: true, match: /^.+@.+\..+$/ },
+    encryptedPassword: { type: String, required: true },
+    bio: { type: String },
+    image: { type: String },
+    role: {
+      type: String,
+      required: true,
+      enum: ["normal", "admin"],
+      default: "normal"
+    }
   },
   {
     timestamps: true
