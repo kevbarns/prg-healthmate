@@ -1,7 +1,7 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
 
-const User = require("../models/user.js");
+const User = require("../models/user-model.js");
 
 const router = express.Router();
 
@@ -60,3 +60,5 @@ router.get("/logout", (req, res, next) => {
   // req.flash ?
   res.redirect("/");
 });
+
+module.exports = router;
