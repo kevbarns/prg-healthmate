@@ -51,10 +51,12 @@ app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 // default value for title local
 app.locals.title = "My Health Mate";
 
+
+
 const index = require("./routes/index");
 app.use("/", index);
 
-const dashboard = require("./routes/dashboard");
-app.use(dashboard);
+const dashboard = require("./routes/dashboard-route");
+app.use("/dashboard", dashboard);
 
 module.exports = app;
