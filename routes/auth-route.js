@@ -2,6 +2,7 @@ const express = require("express");
 const bcrypt = require("bcrypt");
 const router = express.Router();
 const User = require("../models/user-model.js");
+const passport = require("passport");
 
 router.get("/signup-login", (req, res, next) => {
   res.render("auth-views/signup-login.hbs");
@@ -27,6 +28,15 @@ router.post("/process-signup", (req, res, next) => {
     .catch(err => next(err));
 });
 
+router.get("/auth/slack", passport.authenticate("slack"));
+router.get(
+  "/slack/user-info",
+  passport.authenticate("slack", {
+    successRedirect: "/dashboard",
+    failureRedirect: "/signup-login"
+  })
+);
+
 router.post("/process-login", (req, res, next) => {
   const {email, password} = req.body;
 
@@ -39,7 +49,7 @@ router.post("/process-login", (req, res, next) => {
         return;
       }
 
-      const {encryptedPassword} = userDoc;
+      const { encryptedPassword } = userDoc;
 
       if (!bcrypt.compareSync(password, encryptedPassword)) {
         // req.flash ?

@@ -3,9 +3,9 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema(
   {
-    fullName: { type: String, required: true, minlength: 2 },
-    email: { type: String, required: true, unique: true, match: /^.+@.+\..+$/ },
-    encryptedPassword: { type: String, required: true }, // required might not be needed for connect modules (facebook, google, etc...)
+    fullName: { type: String, minlength: 2 },
+    email: { type: String, unique: true, match: /^.+@.+\..+$/ },
+    encryptedPassword: { type: String }, // required might not be needed for connect modules (facebook, google, etc...)
     bio: { type: String, minlength: 10 },
     image: { type: String },
     role: {
@@ -13,7 +13,9 @@ const userSchema = new Schema(
       required: true,
       enum: ["normal", "admin"],
       default: "normal"
-    }
+    },
+    slackID: String,
+    googleID: String
   },
   {
     timestamps: true
