@@ -15,7 +15,7 @@ const RecipeSchema = new Schema(
     carbs: { type: Number, required: true },
     lipid: { type: Number, required: true },
     prepTime: { type: Number, required: true },
-    cookType: { type: Number, required: true },
+    cookingTime: { type: Number, required: true },
     ingredientList: [{ type: String, required: true }]
   },
   {
