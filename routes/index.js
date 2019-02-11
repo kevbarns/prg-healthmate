@@ -1,17 +1,23 @@
-const express = require('express');
-const router  = express.Router();
+const express = require("express");
+const router = express.Router();
 
 /* GET home page */
-router.get('/', (req, res, next) => {
-  res.render('index');
+router.get("/", (req, res, next) => {
+  res.render("index.hbs");
 });
 
-// CALCULE METABOLISME BASAL 
-// Formule Mifflin-St Jeor 
+router.get("/get-started", (req, res, next) => {
+  res.render("steps.hbs");
+});
+
+
+
+// CALCULE METABOLISME BASAL
+// Formule Mifflin-St Jeor
 // Pour les femmes : (10 × poids en kg) + (6,25 x hauteur en cm) - (5 × âge en années) - 161
 // Pour les hommes : (10 x poids en kg) + (6,25 x hauteur en cm) - (5 x âge en années) + 5
 
-// COEFFICIENT ACTIVITE : 
+// COEFFICIENT ACTIVITE :
 // "Sedentary" = 1,2
 // "Little Active" = 1,375
 // "Moderately Active" = 1,55
@@ -21,7 +27,7 @@ router.get('/', (req, res, next) => {
 // BESOIN EN EAU
 // (Poid en kg - 20) * 15 + 1500 = besoin en ml (Apport global)
 
-// Apport par aliment : 
+// Apport par aliment :
 // Aliments	Pourcentages en eau
 // Légumes verts	90 %
 // Fruits frais	80 à 95 %
@@ -40,11 +46,11 @@ router.get('/', (req, res, next) => {
 // DIET.ENUM
 // CHECK /models/user-data.js // need Nizar feedback
 
-// CALCULE MACRO 
-// diet.enum match the value stored in the code 
-// basalMetabolism * % diet.enum.protein.value = MACRO-CARBS (dailyNeed.protein)
+// CALCULE MACRO
+// diet.enum match the value stored in the code
+// basalMetabolism * % diet.enum.protein.value = MACRO-PROTEIN (dailyNeed.protein)
 // basalMetabolism * % diet.enum.carbs.value = MACRO-CARBS (dailyNeed.carbs)
-// basalMetabolism * % diet.enum.lipid.value = MACRO-CARBS (dailyNeed.lipid)
+// basalMetabolism * % diet.enum.lipid.value = MACRO-LIPID (dailyNeed.lipid)
 
 // Pour le seed file avec les valeurs
 // enum: [

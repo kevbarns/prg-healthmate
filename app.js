@@ -32,6 +32,7 @@ const debug = require("debug")(
 );
 
 const app = express();
+// const admin = express();
 
 // Middleware Setup
 app.use(logger("dev"));
@@ -81,7 +82,7 @@ const index = require("./routes/index");
 app.use("/", index);
 
 const dashboard = require("./routes/dashboard-route");
-app.use("/dashboard", dashboard);
+app.use("/", dashboard);
 
 const auth = require("./routes/auth-route.js");
 app.use("/", auth);

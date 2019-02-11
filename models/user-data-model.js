@@ -5,7 +5,7 @@ const UserDataSchema = new Schema(
   {
     username_id: [{type: Schema.Types.ObjectId, ref: "User"}],
     basalMetabolism: {type: Number},
-    imc: {type: Number},
+    bmi: {type: Number},
     bodyFat: {type: Number},
     water: {type: Number},
     diet: {type: Schema.Types.ObjectId, ref:"DietData"},
