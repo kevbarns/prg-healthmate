@@ -8,7 +8,7 @@ router.get("/signup-login", (req, res, next) => {
 });
 
 router.post("/process-signup", (req, res, next) => {
-  const {fullName, userName, email, password, bio, image} = req.body;
+  const {fullName, email, password, bio, image} = req.body;
 
   if (!password || !password.match(/[0-9]/)) {
     // req.flash ?
@@ -18,19 +18,19 @@ router.post("/process-signup", (req, res, next) => {
   }
 
   const encryptedPassword = bcrypt.hashSync(password, 10);
-
-  User.create({fullName, userName, email, encryptedPassword, bio, image})
+  const _id = req.body._id;
+  User.create({_id, fullName, email, encryptedPassword, bio, image})
     .then(() => {
       // req.flash("error", "Probleme de mdp.");
-      res.redirect("/dashboard");
+      res.redirect("/get-started");
     })
     .catch(err => next(err));
 });
 
 router.post("/process-login", (req, res, next) => {
-  const {userName, password} = req.body;
+  const {email, password} = req.body;
 
-  User.findOne({userName: {$eq: userName}})
+  User.findOne({email: {$eq: email}})
     .then(userDoc => {
       if (!userDoc) {
         // req.flash ?
@@ -50,7 +50,7 @@ router.post("/process-login", (req, res, next) => {
 
       req.logIn(userDoc, () => {
         // req.flash ?
-        res.redirect("/dashboard");
+        res.redirect("/dahsboard");
       });
     })
     .catch(err => next(err));
