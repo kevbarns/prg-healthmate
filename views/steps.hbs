@@ -1,38 +1,28 @@
 <div class="section">
   <ul class="steps is-narrow is-medium is-centered has-content-centered">
     <li class="steps-segment">
-      <a href="#" class="has-text-dark">
+      <p class="has-text-dark">
         <span class="steps-marker">
           <span class="icon">
-            <i class="fa fa-shopping-cart"></i>
+            <i class="fas fa-sign-in-alt"></i>
           </span>
         </span>
         <div class="steps-content">
-          <p class="heading">Shopping Cart</p>
+          <p class="heading">Sign up</p>
         </div>
-      </a>
+      </p>
     </li>
-    <li class="steps-segment">
-      <a href="#" class="has-text-dark">
+    <li class="steps-segment is-active has-gaps">
+      <p class="has-text-dark">
         <span class="steps-marker">
           <span class="icon">
             <i class="fa fa-user"></i>
           </span>
         </span>
         <div class="steps-content">
-          <p class="heading">User Information</p>
+          <p class="heading">Your Profile Information</p>
         </div>
-      </a>
-    </li>
-    <li class="steps-segment is-active has-gaps">
-      <span class="steps-marker">
-        <span class="icon">
-          <i class="fa fa-usd"></i>
-        </span>
-      </span>
-      <div class="steps-content">
-        <p class="heading">Payment</p>
-      </div>
+      </p>
     </li>
     <li class="steps-segment">
       <span class="steps-marker is-hollow">
@@ -47,15 +37,16 @@
   </ul>
 </div>
 
+
 <div class="section">
-  <form action="" method="post">
+  <form action="/process-user-data" method="post">
     <div class="field is-horizontal">
       <div class="field-label is-normal">
         <label class="label">Height (cm)</label>
       </div>
       <div class="field-body">
         <div class="control">
-          <input class="input" type="text" name="height" value="" placeholder="172cm">
+          <input class="input" type="text" name="height" value="" placeholder="172cm" required>
         </div>
       </div>
     </div>
@@ -65,7 +56,7 @@
       </div>
       <div class="field-body">
         <div class="control">
-          <input class="input" type="text" name="weight" value="" placeholder="72kg">
+          <input class="input" type="text" name="weight" value="" placeholder="72kg" required>
         </div>
       </div>
     </div>

@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const UserProfile = require("../models/user-profile-model.js");
 
 /* GET home page */
 router.get("/", (req, res, next) => {
@@ -10,7 +11,17 @@ router.get("/get-started", (req, res, next) => {
   res.render("steps.hbs");
 });
 
-
+router.post("/process-user-data", (req, res, next) => {
+  const {height, weight, gender, activity, objective} = req.body;
+  const _id = req.user._id;
+  UserProfile.create({ _id, height, weight, gender, activity, objective})
+    .then(data => {
+      console.log("User Profile data inserted", data);
+    })
+    .catch(err => {
+      console.log("User Profile data failed", err);
+    });
+});
 
 // CALCULE METABOLISME BASAL
 // Formule Mifflin-St Jeor
