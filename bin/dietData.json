@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Balanced",
+    "protein": 50,
+    "carbs": 25,
+    "lipid": 25
+  },
+  {
+    "name": "Moderate",
+    "protein": 55,
+    "carbs": 25,
+    "lipid": 20
+  },
+  {
+    "name": "Fitness",
+    "protein": 50,
+    "carbs": 30,
+    "lipid": 20
+  },
+  {
+    "name": "Mediterranean",
+    "protein": 40,
+    "carbs": 15,
+    "lipid": 45
+  },
+  {
+    "name": "Low Fat",
+    "protein": 60,
+    "carbs": 25,
+    "lipid": 15
+  },
+  {
+    "name": "Low Carbs",
+    "protein": 25,
+    "carbs": 40,
+    "lipid": 35
+  },
+  {
+    "name": "Body Builder",
+    "protein": 40,
+    "carbs": 40,
+    "lipid": 35
+  },
+  {
+    "name": "Ketogenic",
+    "protein": 5,
+    "carbs": 30,
+    "lipid": 65
+  }
+]

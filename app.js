@@ -81,10 +81,12 @@ app.locals.title = "My Health Mate";
 const index = require("./routes/index");
 app.use("/", index);
 
+const auth = require("./routes/auth-route.js");
+app.use("/", auth);
+
 const dashboard = require("./routes/dashboard-route");
 app.use("/", dashboard);
 
-const auth = require("./routes/auth-route.js");
-app.use("/", auth);
+
 
 module.exports = app;

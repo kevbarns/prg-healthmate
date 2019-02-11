@@ -1,19 +1,15 @@
 require("dotenv").config();
-
 const mongoose = require("mongoose");
-
-// OUR MODELS
-
-const Recipes = require("../models/recipes.js");
-// const UserData = require("../models/user-data.js");
-// const UserProfil = require("../models/user-profile.js");
-// const User = require("../models/user.js");
-
-// NEED TO REQUIERE JSON FILE
-// const recipesData
+// RUN CMD : node run seed
+// MODELS
+const Recipes = require("../models/recipes-model.js");
+const DietData = require("../models/diet-data-model.js");
+// DATA
+const dietData = require("./dietData.json");
+const recipesData = require("./recipesData.json");
 
 mongoose
-  .connect("mongodb://localhost/myhealthmate", { useNewUrlParser: true })
+  .connect("mongodb://localhost/myhealthmate", {useNewUrlParser: true})
   .then(x => {
     console.log(
       `Connected to Mongo! Database name: "${x.connections[0].name}"`
@@ -23,12 +19,18 @@ mongoose
     console.error("Error connecting to mongo", err);
   });
 
-Recipes.insertMany(recipeData)
+Recipes.insertMany(recipesData)
   .then(recipeResults => {
-    console.log(`${recipeResults.length} Recipes added to the database !`);
+    console.log(`${recipeResults.length} Recipes added to the database`);
   })
   .catch(err => {
-    console.log(
-      "An error has occured... Recipes couldn't been added to the database..."
-    );
+    console.log("Failed to insert Recipes Data in the Recipes Collection", err);
   });
+
+// DietData.insertMany(dietData)
+//   .then(data => {
+//     console.log(`${data.length} diet inserted`);
+//   })
+//   .catch(err => {
+//     console.log("Failed to insert Diet data in DietData Collection");
+//   });
