@@ -9,7 +9,7 @@ router.get("/signup-login", (req, res, next) => {
 });
 
 router.post("/process-signup", (req, res, next) => {
-  const {fullName, email, password, bio, image} = req.body;
+  const { fullName, email, password, bio, image } = req.body;
 
   if (!password || !password.match(/[0-9]/)) {
     // req.flash ?
@@ -20,7 +20,7 @@ router.post("/process-signup", (req, res, next) => {
 
   const encryptedPassword = bcrypt.hashSync(password, 10);
   const _id = req.body._id;
-  User.create({_id, fullName, email, encryptedPassword, bio, image})
+  User.create({ _id, fullName, email, encryptedPassword, bio, image })
     .then(() => {
       // req.flash("error", "Probleme de mdp.");
       res.redirect("/get-started");
@@ -32,15 +32,33 @@ router.get("/auth/slack", passport.authenticate("slack"));
 router.get(
   "/slack/user-info",
   passport.authenticate("slack", {
-    successRedirect: "/dashboard",
+    successReturnToOrRedirect: "/recipes-list",
     failureRedirect: "/signup-login"
   })
 );
 
-router.post("/process-login", (req, res, next) => {
-  const {email, password} = req.body;
+router.get(
+  "/auth/google",
+  passport.authenticate("google", {
+    scope: [
+      "https://www.googleapis.com/auth/plus.login",
+      "https://www.googleapis.com/auth/plus.profile.emails.read"
+    ]
+  })
+);
 
-  User.findOne({email: {$eq: email}})
+router.get(
+  "/google/user-info",
+  passport.authenticate("google", {
+    failureRedirect: "/signup-login",
+    successReturnToOrRedirect: "/recipes-list"
+  })
+);
+
+router.post("/process-login", (req, res, next) => {
+  const { email, password } = req.body;
+
+  User.findOne({ email: { $eq: email } })
     .then(userDoc => {
       if (!userDoc) {
         // req.flash ?
@@ -60,7 +78,7 @@ router.post("/process-login", (req, res, next) => {
 
       req.logIn(userDoc, () => {
         // req.flash ?
-        res.redirect("/dahsboard");
+        res.redirect("/recipes-list");
       });
     })
     .catch(err => next(err));

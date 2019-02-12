@@ -3,6 +3,7 @@ const passport = require("passport");
 const User = require("../models/user-model.js");
 
 require("./passport-slack-strategy.js");
+require("./passport-google-strategy.js");
 
 passport.serializeUser((userDoc, done) => {
   done(null, userDoc._id);
