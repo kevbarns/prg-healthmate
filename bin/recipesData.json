@@ -20,7 +20,7 @@
       "Arôme vanille ou Liquiflav (facultatif)",
       "Sel"
     ],
-    "image": "https://s3-eu-west-1.amazonaws.com/healthmate/b1.png"
+    "image": "https://d3isvudwy9gyyx.cloudfront.net/b1.png"
   },
   {
     "title": "Bowlcake choco-framboises",
@@ -42,7 +42,7 @@
       "Sel : 1 pincée",
       "Chocolat noir (70% cacao minimum) : 1 carré (3g)"
     ],
-    "image": "https://s3-eu-west-1.amazonaws.com/healthmate/b2.png"
+    "image": "https://d3isvudwy9gyyx.cloudfront.net/b2.png"
   },
   {
     "title": "Bluebs pancakes (4 PANCAKES)",
@@ -66,7 +66,7 @@
       "Eau : env. 100ml",
       "Blueberries : 1 poignée (30g)"
     ],
-    "image": "https://s3-eu-west-1.amazonaws.com/healthmate/b3.png"
+    "image": "https://d3isvudwy9gyyx.cloudfront.net/b3.png"
   },
   {
     "title": "Double choc pancakes",
@@ -86,7 +86,7 @@
       "Vinaigre de cidre : 1 CC",
       "Banane mûre : 1/2 (50g)"
     ],
-    "image": "https://s3-eu-west-1.amazonaws.com/healthmate/b4.png"
+    "image": "https://d3isvudwy9gyyx.cloudfront.net/b4.png"
   },
   {
     "title": "Porridge protéiné",
@@ -104,7 +104,7 @@
       "Blueberries* : 50g",
       "*ou fraises coupées en morceaux, banane, mangue... Cannelle"
     ],
-    "image": "https://s3-eu-west-1.amazonaws.com/healthmate/b5.png"
+    "image": "https://d3isvudwy9gyyx.cloudfront.net/b5.png"
   },
   {
     "title": "Porridge choco gourmand",
@@ -123,7 +123,7 @@
       "Lait de cajou ou amandes sans sucre : 150ml Eau : 150ml",
       "Dattes Medjool dénoyautées : 2 (30g) Option : Stevia"
     ],
-    "image": "https://s3-eu-west-1.amazonaws.com/healthmate/b6.png"
+    "image": "https://d3isvudwy9gyyx.cloudfront.net/b6.png"
   },
   {
     "title": "Nice cream banane",
@@ -140,7 +140,7 @@
       "Extrait de vanille liquide (ou Liquiflav vanille)",
       "Cannelle"
     ],
-    "image": "https://s3-eu-west-1.amazonaws.com/healthmate/b7.png"
+    "image": "https://d3isvudwy9gyyx.cloudfront.net/b7.png"
   },
   {
     "title": "Porridge & nice cream",
@@ -161,7 +161,7 @@
       "Cannelle ou épices pour pain d’épice",
       "Option : cacao maigre en poudre ou peanut butter en poudre"
     ],
-    "image": "https://s3-eu-west-1.amazonaws.com/healthmate/b8.png"
+    "image": "https://d3isvudwy9gyyx.cloudfront.net/b8.png"
   },
   {
     "title": "Pink smoothie",
@@ -182,7 +182,7 @@
       "Fruits de la passion : 2",
       "(peuvent être remplacés par une poignée de baies de votre choix) Option : 1 trait de jus de citron vert"
     ],
-    "image": "https://s3-eu-west-1.amazonaws.com/healthmate/b9.png"
+    "image": "https://d3isvudwy9gyyx.cloudfront.net/b9.png"
   },
   {
     "title": "Hulk smoothie",
@@ -203,7 +203,7 @@
       "Jeunes pousses d’épinard : 1 poignée",
       "Menthe (fraîche ou surgelée) : quelques feuilles"
     ],
-    "image": "https://s3-eu-west-1.amazonaws.com/healthmate/b10.png"
+    "image": "https://d3isvudwy9gyyx.cloudfront.net/b10.png"
   },
   {
     "title": "Cookie dough bowl",
@@ -215,7 +215,7 @@
     "prepTime": 7,
     "cookingTime": 120,
     "ingredientList": "[\"Pois chiches cuits : 200g\",\"Protéine végétale en poudre parfum vanille : 3/4 scoop (25g)\",Dattes Medjool dénoyautées : 50g\",\"Pépites de chocolat noir : 20g\",\"Liquiflav ou arôme vanille : quelques gouttes\",\"Cannelle\",\"Sel\"]",
-    "image": "https://s3-eu-west-1.amazonaws.com/healthmate/b11.png"
+    "image": "https://d3isvudwy9gyyx.cloudfront.net/b11.png"
   },
   {
     "title": "Double choc cookie dough",
@@ -236,7 +236,7 @@
       "Liquiflav vanille ou arôme vanille liquide : quelques gouttes",
       "Sel"
     ],
-    "image": "https://s3-eu-west-1.amazonaws.com/healthmate/b12.png"
+    "image": "https://d3isvudwy9gyyx.cloudfront.net/b12.png"
   },
   {
     "title": "Pain perdu",
@@ -256,7 +256,7 @@
       "Liquiflav ou arôme vanille liquide : quelques gouttes",
       "Cannelle"
     ],
-    "image": "https://s3-eu-west-1.amazonaws.com/healthmate/b13.png"
+    "image": "https://d3isvudwy9gyyx.cloudfront.net/b13.png"
   },
   {
     "title": "Gaufre salées",
@@ -278,7 +278,7 @@
       "Origan",
       "Sel, poivre"
     ],
-    "image": "https://s3-eu-west-1.amazonaws.com/healthmate/b14.png"
+    "image": "https://d3isvudwy9gyyx.cloudfront.net/b14.png"
   },
   {
     "title": "Omelette",
@@ -295,7 +295,7 @@
       "Levure maltée ou levure nutritionnelle : 1 CS Paprika fumé",
       "Sel, poivre"
     ],
-    "image": "https://s3-eu-west-1.amazonaws.com/healthmate/b15.png"
+    "image": "https://d3isvudwy9gyyx.cloudfront.net/b15.png"
   },
   {
     "title": "Rösti",
@@ -315,7 +315,7 @@
       "Ail en poudre : 1/2 CC",
       "Sel"
     ],
-    "image": "https://s3-eu-west-1.amazonaws.com/healthmate/b16.png"
+    "image": "https://d3isvudwy9gyyx.cloudfront.net/b16.png"
   },
   {
     "title": "BBQ Tempeh",
@@ -332,7 +332,7 @@
       "Hot sauce ou tabasco",
       "Poivre noir"
     ],
-    "image": "https://s3-eu-west-1.amazonaws.com/healthmate/d1.png"
+    "image": "https://d3isvudwy9gyyx.cloudfront.net/d1.png"
   },
   {
     "title": "Falafels",
@@ -354,7 +354,7 @@
       "Cumin & paprika fumé (ou mélange d’épices oriental)",
       "Sel & poivre"
     ],
-    "image": "https://s3-eu-west-1.amazonaws.com/healthmate/d2.png"
+    "image": "https://d3isvudwy9gyyx.cloudfront.net/d2.png"
   },
   {
     "title": "Black Bean Burgers",
@@ -374,7 +374,7 @@
       "Cumin, paprika fumé et chili (ou mélange d’épices cajun, mexicain...)",
       "Sel"
     ],
-    "image": "https://s3-eu-west-1.amazonaws.com/healthmate/d3.png"
+    "image": "https://d3isvudwy9gyyx.cloudfront.net/d3.png"
   },
   {
     "title": "Meatless Steaks",
@@ -396,7 +396,7 @@
       "Sauce sriracha : 1 CC",
       "Coriandre fraîche (ou persil plat) : 1 poignée"
     ],
-    "image": "https://s3-eu-west-1.amazonaws.com/healthmate/d4.png"
+    "image": "https://d3isvudwy9gyyx.cloudfront.net/d4.png"
   },
   {
     "title": "Tempeh Grille",
@@ -413,7 +413,7 @@
       "Vinaigre balsamique : 25ml",
       "Sauce sriracha : 5 à 10g"
     ],
-    "image": "https://s3-eu-west-1.amazonaws.com/healthmate/d5.png"
+    "image": "https://d3isvudwy9gyyx.cloudfront.net/d5.png"
   },
   {
     "title": "Thaï tofu",
@@ -432,7 +432,7 @@
       "Ail : 1 petite gousse",
       "Coriandre fraîche : 1 petite poignée Option : Graines de sésame (1 CC)"
     ],
-    "image": "https://s3-eu-west-1.amazonaws.com/healthmate/d6.png"
+    "image": "https://d3isvudwy9gyyx.cloudfront.net/d6.png"
   },
   {
     "title": "Tofu Meatballs",
@@ -454,7 +454,7 @@
       "Ciboulette fraîche : 1 petite poignée",
       "Sel"
     ],
-    "image": "https://s3-eu-west-1.amazonaws.com/healthmate/d7.png"
+    "image": "https://d3isvudwy9gyyx.cloudfront.net/d7.png"
   },
   {
     "title": "Seitan",
@@ -475,7 +475,7 @@
       "Oignon : 1/2",
       "Thym : 1 branche"
     ],
-    "image": "https://s3-eu-west-1.amazonaws.com/healthmate/d8.png"
+    "image": "https://d3isvudwy9gyyx.cloudfront.net/d8.png"
   },
   {
     "title": "Tofu Rôti",
@@ -493,7 +493,7 @@
       "Poivre noir",
       "Option : Graines de sésame (1 CC)"
     ],
-    "image": "https://s3-eu-west-1.amazonaws.com/healthmate/d9.png"
+    "image": "https://d3isvudwy9gyyx.cloudfront.net/d9.png"
   },
   {
     "title": "Chili Sin Carne",
@@ -519,7 +519,7 @@
       "Epices chili : 1/2 CC",
       "Origan : 1/2 CC"
     ],
-    "image": "https://s3-eu-west-1.amazonaws.com/healthmate/d10.png"
+    "image": "https://d3isvudwy9gyyx.cloudfront.net/d10.png"
   },
   {
     "title": "Creamy Pasta",
@@ -541,7 +541,7 @@
       "Sel",
       "Option : bouillon de légumes dégraissé en poudre"
     ],
-    "image": "https://s3-eu-west-1.amazonaws.com/healthmate/d11.png"
+    "image": "https://d3isvudwy9gyyx.cloudfront.net/d11.png"
   },
   {
     "title": "Nouilles Satay",
@@ -569,7 +569,7 @@
       "Sirop d’érable : 1 CS",
       "Option : sauce sriracha"
     ],
-    "image": "https://s3-eu-west-1.amazonaws.com/healthmate/d12.png"
+    "image": "https://d3isvudwy9gyyx.cloudfront.net/d12.png"
   },
   {
     "title": "One Pot Protein Pasta",
@@ -594,7 +594,7 @@
       "Basilic frais",
       "Sel, poivre"
     ],
-    "image": "https://s3-eu-west-1.amazonaws.com/healthmate/d13.png"
+    "image": "https://d3isvudwy9gyyx.cloudfront.net/d13.png"
   },
   {
     "title": "Thaï Noodles",
@@ -625,7 +625,7 @@
       "Graines de sésame : 1 CC",
       "Citron vert : 1"
     ],
-    "image": "https://s3-eu-west-1.amazonaws.com/healthmate/d14.png"
+    "image": "https://d3isvudwy9gyyx.cloudfront.net/d14.png"
   },
   {
     "title": "Tomato Pasta",
@@ -647,6 +647,6 @@
       "Sel, poivre",
       "Option : bouillon de légumes dégraissé en poudre"
     ],
-    "image": "https://s3-eu-west-1.amazonaws.com/healthmate/d15.png"
+    "image": "https://d3isvudwy9gyyx.cloudfront.net/d15.png"
   }
 ]
