@@ -19,11 +19,10 @@ router.post("/process-signup", (req, res, next) => {
   }
 
   const encryptedPassword = bcrypt.hashSync(password, 10);
-  const _id = req.body._id;
-  User.create({_id, fullName, email, encryptedPassword, bio, image})
-    .then(() => {
+  User.create({fullName, email, encryptedPassword, bio, image})
+    .then(data => {
       // req.flash("error", "Probleme de mdp.");
-      res.redirect("/get-started");
+      req.logIn(data, () => res.redirect("/get-started"));
     })
     .catch(err => next(err));
 });
@@ -49,7 +48,7 @@ router.post("/process-login", (req, res, next) => {
         return;
       }
 
-      const { encryptedPassword } = userDoc;
+      const {encryptedPassword} = userDoc;
 
       if (!bcrypt.compareSync(password, encryptedPassword)) {
         // req.flash ?
