@@ -1,1 +1,34 @@
-recipe list
+{{#each recipesList}}
+
+<div class="card">
+  <div class="columns">
+    <div class="column center">
+      <div class="card-image recipes-image">
+        <figure class="image">
+          <img src="{{this.image}}" alt="Placeholder image">
+        </figure>
+      </div>
+    </div>
+    <div class="column">
+      <div class="card-content">
+        <div class="media">
+          <div class="media-content recipe-list">
+            <p class="title is-4"><a href="/oneRecipe/{{this._id}}"><u>{{this.title}}</u></a></p>
+            <p class="title is-5">{{this.dishType}}</p>
+            <br>
+            <p>Prepration time: <b>{{this.prepTime}}</b> minutes / Cooking time: <b>{{this.cookingTime}}</b> minutes</p>
+            <br>
+            <ul>
+              <li>Kilo Calories:<small> <b>{{this.kCal}}</b></small></li>
+              <li>Proteins:<small> <b>{{this.protein}}</b></small></li>
+              <li>Carbohydrates:<small> <b>{{this.carbs}}</b></small></li>
+              <li>Lipids:<small> <b>{{this.lipid}}</b></small></li>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{/each}}

@@ -9,7 +9,7 @@ const dietData = require("./dietData.json");
 const recipesData = require("./recipesData.json");
 
 mongoose
-  .connect("mongodb://localhost/myhealthmate", {useNewUrlParser: true})
+  .connect("mongodb://localhost/myhealthmate", { useNewUrlParser: true })
   .then(x => {
     console.log(
       `Connected to Mongo! Database name: "${x.connections[0].name}"`
@@ -19,18 +19,10 @@ mongoose
     console.error("Error connecting to mongo", err);
   });
 
-Recipes.insertMany(recipesData)
-  .then(recipeResults => {
-    console.log(`${recipeResults.length} Recipes added to the database`);
-  })
-  .catch(err => {
-    console.log("Failed to insert Recipes Data in the Recipes Collection", err);
-  });
-
-// DietData.insertMany(dietData)
-//   .then(data => {
-//     console.log(`${data.length} diet inserted`);
+// Recipes.insertMany(recipesData)
+//   .then(recipeResults => {
+//     console.log(`${recipeResults.length} Recipes added to the database`);
 //   })
 //   .catch(err => {
-//     console.log("Failed to insert Diet data in DietData Collection");
+//     console.log("Failed to insert Recipes Data in the Recipes Collection", err);
 //   });

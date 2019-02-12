@@ -1,0 +1,82 @@
+<h1 class="title is-1 center">{{oneRecipe.title}}</h1>
+<div class="card">
+  <div class="columns">
+    <div class="column center">
+      <div class="card-image recipes-image">
+        <figure class="image">
+          <img src="{{oneRecipe.image}}" alt="Placeholder image">
+        </figure>
+      </div>
+    </div>
+    <div class="column">
+      <div class="card-content">
+        <nav class="level is-mobile level-right">
+          <div class="level-left">
+            <a class="level-item" aria-label="reply">
+              <span class="icon is-medium">
+                <i class="fas fa-2x fa-reply icon-reply" aria-hidden="true"></i>
+              </span>
+            </a>
+            <a class="level-item" aria-label="retweet">
+              <span class="icon is-medium">
+                <i class="fas fa-2x fa-retweet icon-retweet" aria-hidden="true"></i>
+              </span>
+            </a>
+            <a class="level-item" aria-label="like">
+              <span class="icon is-medium">
+                <i class="fas fa-2x fa-heart icon-like" aria-hidden="true"></i>
+              </span>
+            </a>
+          </div>
+        </nav>
+        <div class="media">
+          <div class="media-content recipe-list">
+            <br>
+            <p>Prepration time: <b>{{oneRecipe.prepTime}}</b> minutes / Cooking time: <b>{{oneRecipe.cookingTime}}</b>
+              minutes</p>
+            <br>
+            <ul>
+              <li>Kilo Calories: <b>{{oneRecipe.kCal}}</b></li>
+              <br>
+              <li>Proteins: <b>{{oneRecipe.protein}}</b></li>
+              <br>
+              <li>Carbohydrates: <b>{{oneRecipe.carbs}}</b></li>
+              <br>
+              <li>Lipids: <b>{{oneRecipe.lipid}}</b></li>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<div class="columns">
+  <div class="column is-one-third">
+    <p class="title is-4">What do you need:</p>
+    {{#each oneRecipe.ingredientList}}
+    <ul>
+      <li><b>-</b> {{this}}</li>
+    </ul>
+    {{/each}}
+  </div>
+  <div class="is-divider-vertical"></div>
+  <div class="column">
+    <p class="title is-4">Let's cook:</p>
+    <p>RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE
+      RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE
+      RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE
+      RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE
+      RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE
+      RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE
+      RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE
+      RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE
+      RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE
+      RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE
+      RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE
+
+    </p>
+  </div>
+</div>

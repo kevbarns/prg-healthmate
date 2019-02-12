@@ -18,4 +18,15 @@ router.get("/recipes-list", (req, res, next) => {
     .catch(err => next(err));
 });
 
+router.get("/oneRecipe/:recipeId", (req, res, next) => {
+  const { recipeId } = req.params;
+
+  Recipes.findById(recipeId)
+    .then(recipeData => {
+      res.locals.oneRecipe = recipeData;
+      res.render("dashboard/oneRecipe.hbs");
+    })
+    .catch(err => next(err));
+});
+
 module.exports = router;
