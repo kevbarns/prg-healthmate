@@ -22,6 +22,12 @@ a {
 .hero-header {
   z-index: 1; }
 
+.signup {
+  margin: 50px; }
+
+.login {
+  margin: 50px; }
+
 .center,
 .center-column,
 .top,

@@ -1,60 +1,120 @@
-<div class="signup">
-  <h2>Sign Up</h2>
-  <form action="/process-signup" method="POST">
-
-    <label>
-      Your Full Name (2 characters or more): *
-      <input type="text" name="fullName" placeholder="John Doe" minlength="2" required>
-    </label>
-
-    <label>
-      Enter your email: *
-      <input type="email" name="email" placeholder="John@doe.com" required>
-    </label>
-
-    <label>
-      Choose a password (Must contains a digit 0-9): *
-      <input type="password" name="password" placeholder="Go for it..." required>
-    </label>
-
-    <label>
-      Say something about you:
-      <input type="text" name="bio" placeholder="I love fitness and jogging !" minlength="10" required>
-    </label>
-
-    <label>
-      Add a photo:
-      <input type="text" name="image" placeholder="Url of your photo !" required>
-    </label>
-
-    <p><b>* required field.</b></p> <br> <br>
-    {{> flash}}
-
-    <button>signup</button>
-  </form>
-
-</div>
-
-<div class="login">
-  <h2>Log In</h2>
-  <form action="/process-login" method="POST">
-
-    <label>
-      Email:
-      <input type="email" name="email" placeholder="John666" required>
-    </label>
-
-    <label>
-      Password:
-      <input type="password" name="password" placeholder="You know you know..." required>
-    </label>
+<div class="columns">
 
 
-    <button>login</button>
-  </form>
+  <div class="container">
+    <div class="column is-half signup">
+      <h3 class="title is-3">Sign In:</h3>
+      <div class="field">
+        <form action="/process-signup" method="POST">
+          <label class="label">Your Full Name:</label>
+          <div class="control">
+            <input class="input" type="text" name="fullName" placeholder="John Doe" minlength="2" required />
+          </div>
+          <p class="help">Required</p>
+      </div>
 
-</div>
+      <div class="field">
+        <label class="label">Your Email:</label>
+        <div class="control has-icons-left has-icons-right">
+          <input class="input" type="email" name="email" placeholder="John@doe.com" required>
+          <span class="icon is-small is-left">
+            <i class="fas fa-envelope"></i>
+          </span>
+          <span class="icon is-small is-right">
+            <i class="fas fa-exclamation-triangle"></i>
+          </span>
+        </div>
+        <p class="help">Required</p>
+      </div>
 
-<div class="slack-signin">
-  <a href="/auth/slack">Login With Slack</a>
+      <div class="field">
+        <label class="label">Choose a Password:</label>
+        <div class="control">
+          <input class="input" type="password" name="password" placeholder="Go for it..." required>
+        </div>
+        <p class="help">Has to contain a digit [0-9]</p>
+      </div>
+
+      <div class="field">
+        <label class="label">A Few Words About You:</label>
+        <div class="control">
+          <textarea class="textarea" type="text" name="bio" placeholder="I love fitness and jogging !" minlength="10"
+            required></textarea>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Your Photo:</label>
+        <div class="control">
+          <input class="input" type="text" name="image" placeholder="Url of your photo !">
+        </div>
+        <br>
+        <p><b>OR</b></p>
+        <br>
+        <div class="file">
+          <label class="file-label">
+            <input class="file-input" type="file" name="resume">
+            <span class="file-cta">
+              <span class="file-icon">
+                <i class="fas fa-upload"></i>
+              </span>
+              <span class="file-label">
+                Choose a file…
+              </span>
+            </span>
+          </label>
+        </div>
+      </div>
+      <br>
+      <div class="field is-grouped">
+        <div class="control">
+          <button class="button is-link">Submit</button>
+        </div>
+        <div class="control">
+          <button class="button is-text">Cancel</button>
+        </div>
+      </div>
+      </form>
+    </div>
+  </div>
+
+
+
+  <div class="is-divider-vertical" data-content="OR"></div>
+
+
+  <div class="container">
+    <div class="column is-half login">
+      <h3 class="title is-3">Log In:</h3>
+      <form action="/process-login" method="POST">
+        <div class="field">
+          <label class="label">Email:</label>
+          <div class="control">
+            <input class="input" type="email" name="email" placeholder="John@doe.com" required />
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Password:</label>
+          <div class="control">
+            <input class="input" type="password" name="password" placeholder="You know you know..." required>
+          </div>
+        </div>
+        <br>
+        <div class="field is-grouped">
+          <div class="control">
+            <button class="button is-link">Log In</button>
+          </div>
+        </div>
+      </form>
+      <br>
+      <div class="is-divider" data-content="OR"></div>
+      <br>
+      <div class="slack-signin">
+        <a href="/auth/slack"><img src="https://api.slack.com/img/sign_in_with_slack.png" /></a>
+      </div>
+    </div>
+  </div>
+
+
 </div>
