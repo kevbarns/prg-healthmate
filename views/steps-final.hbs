@@ -1,0 +1,162 @@
+<div class="section">
+  <ul class="steps is-narrow is-medium is-centered has-content-centered">
+    <li class="steps-segment">
+      <p class="has-text-dark">
+        <span class="steps-marker">
+          <span class="icon">
+            <i class="fas fa-sign-in-alt"></i>
+          </span>
+        </span>
+        <div class="steps-content">
+          <p class="heading">Sign up</p>
+        </div>
+      </p>
+    </li>
+    <li class="steps-segment">
+      <p class="has-text-dark">
+        <span class="steps-marker">
+          <span class="icon">
+            <i class="fa fa-user"></i>
+          </span>
+        </span>
+        <div class="steps-content">
+          <p class="heading">Your Profile Information</p>
+        </div>
+      </p>
+    </li>
+    <li class="steps-segment">
+      <span class="steps-marker is-active has-gaps">
+        <span class="icon">
+          <i class="fa fa-check"></i>
+        </span>
+      </span>
+      <div class="steps-content">
+        <p class="heading">My Physical needs</p>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="section center" style="justify-content:space-around;flex-wrap: wrap;">
+  <div class="card">
+    <div class="card-content has-background-primary">
+      <p class="title">
+        Basal Metabolic Rate
+      </p>
+      <p class="subtitle">Coucou explain</p>
+    </div>
+    <footer class="card-footer">
+      <div class="card-content">
+        <p class="title">{{data.basalMetabolism}}</p>
+      </div>
+    </footer>
+  </div>
+  <div class="card">
+    <div class="card-content has-background-light">
+      <p class="title">
+        Daily Need
+      </p>
+      <p class="subtitle">According to your activity</p>
+    </div>
+    <footer class="card-footer">
+      <div class="card-content">
+        <p class="title"> {{data.metabolismNeed}} </p>
+      </div>
+    </footer>
+  </div>
+  <div class="card">
+    <div class="card-content has-background-success">
+      <p class="title">
+        Objective Needs
+      </p>
+      <p class="subtitle">According to your objective : <br/> this is the one you want to follow</p>
+    </div>
+    <footer class="card-footer">
+      <div class="card-content">
+        <p class="title"> {{data.objectiveNeed}} </p>
+      </div>
+    </footer>
+  </div>
+</div>
+
+<div class="section center" style="justify-content:space-evenly;flex-wrap: wrap;">
+    <div class="card">
+    <div class="card-content has-background-light">
+      <p class="title">
+        Basal Metabolic Index
+      </p>
+      <p class="subtitle">Coucou explain</p>
+    </div>
+    <footer class="card-footer">
+      <div class="card-content">
+        <p class="title"> {{data.bmi}} </p>
+      </div>
+    </footer>
+  </div>
+  <div class="card">
+    <div class="card-content has-background-light">
+      <p class="title">
+        Water Need
+      </p>
+      <p class="subtitle">Coucou explain</p>
+    </div>
+    <footer class="card-footer">
+      <div class="card-content">
+        <p class="title"> {{data.water}} </p>
+      </div>
+    </footer>
+  </div>
+</div>
+
+{{!-- <div class="section center" style="justify-content: space-around">
+  <article class="message is-dark">
+    <div class="message-body">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis
+      placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum
+      <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et
+      sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem
+      eget, facilisis sodales sem.
+    </div>
+  </article>
+
+  <article class="message is-primary">
+    <div class="message-body">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis
+      placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum
+      <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et
+      sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem
+      eget, facilisis sodales sem.
+    </div>
+  </article>
+
+  <article class="message is-link">
+    <div class="message-body">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis
+      placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum
+      <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et
+      sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem
+      eget, facilisis sodales sem.
+    </div>
+  </article>
+
+  <article class="message is-info">
+    <div class="message-body">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis
+      placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum
+      <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et
+      sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem
+      eget, facilisis sodales sem.
+    </div>
+  </article>
+
+  <article class="message is-warning">
+    <div class="message-body">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis
+      placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum
+      <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et
+      sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem
+      eget, facilisis sodales sem.
+    </div>
+  </article>
+
+</div> --}}

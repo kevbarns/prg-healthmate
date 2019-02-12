@@ -19,14 +19,8 @@ router.post("/process-signup", (req, res, next) => {
   }
 
   const encryptedPassword = bcrypt.hashSync(password, 10);
-<<<<<<< HEAD
   User.create({fullName, email, encryptedPassword, bio, image})
     .then(data => {
-=======
-  const _id = req.body._id;
-  User.create({ _id, fullName, email, encryptedPassword, bio, image })
-    .then(() => {
->>>>>>> d99156e60d3e285326f75985d0d384a0a132c248
       // req.flash("error", "Probleme de mdp.");
       req.logIn(data, () => res.redirect("/get-started"));
     })

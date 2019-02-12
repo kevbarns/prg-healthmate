@@ -3,10 +3,11 @@ const Schema = mongoose.Schema;
 
 const UserProfileSchema = new Schema(
   {
-    username_id: [{type: Schema.Types.ObjectId, ref: "User"}],
+    userId: {type: Schema.Types.ObjectId, ref: "User"},
     height: {type: Number, required: true},
     weight: {type: Number, required: true},
-    gender: {type: String, enum: ["Man", "Woman"]},
+    age: {type: Number, required: true},
+    gender: {type: String, enum: ["Male", "Female"]},
     activity: {
       type: String,
       enum: [

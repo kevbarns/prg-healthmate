@@ -3,13 +3,14 @@ const Schema = mongoose.Schema;
 
 const UserDataSchema = new Schema(
   {
-    username_id: [{type: Schema.Types.ObjectId, ref: "User"}],
+    userId: {type: Schema.Types.ObjectId, ref: "User"},
     basalMetabolism: {type: Number},
     bmi: {type: Number},
     bodyFat: {type: Number},
     water: {type: Number},
-    diet: {type: Schema.Types.ObjectId, ref:"DietData"},
-    dailyNeed: {type: Array}
+    dietReference: {type: Schema.Types.ObjectId, ref: "DietData"},
+    objectiveNeed: {type: Number},
+    metabolismNeed: {type: Number}
   },
   {timestamps: true}
 );
