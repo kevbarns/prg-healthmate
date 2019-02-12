@@ -38,6 +38,27 @@ a {
   margin: 50px;
 }
 
+.recipes-image {
+  max-width: 320px;
+}
+
+.recipe-list a {
+  list-style: none;
+  color: #7da944;
+}
+
+.icon-reply {
+  color: orange;
+}
+
+.icon-retweet {
+  color: #90c9ff;
+}
+
+.icon-like {
+  color: red;
+}
+
 // HELPERS
 
 .center,

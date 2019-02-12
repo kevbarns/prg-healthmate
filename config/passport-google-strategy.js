@@ -1,14 +1,14 @@
-const SlackStrategy = require("passport-slack").Strategy;
+const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 const passport = require("passport");
 
 const User = require("../models/user-model.js");
 
 passport.use(
-  new SlackStrategy(
+  new GoogleStrategy(
     {
-      clientID: process.env.SLACK_ID,
-      clientSecret: process.env.SLACK_SECRET,
-      scope: ["identity.basic", "identity.email"],
+      clientID: process.env.GOOGLE_ID,
+      clientSecret: process.env.GOOGLE_SECRET,
+      callbackURL: "/google/user-info",
       passReqToCallback: true,
       proxy: true
     },
@@ -17,17 +17,14 @@ passport.use(
 
       const { displayName, emails } = profile;
 
-      User.findOne({ email: { $eq: profile.user.email } })
+      User.findOne({ email: { $eq: emails[0].value } })
         .then(userDoc => {
           if (userDoc) {
             done(null, userDoc);
             return;
           }
 
-          User.create({
-            fullName: profile.displayName,
-            email: profile.user.email
-          })
+          User.create({ fullName: displayName, email: emails[0].value })
             .then(userDoc => {
               req.session.returnTo = "/get-started";
               done(null, userDoc);
