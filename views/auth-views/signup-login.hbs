@@ -5,7 +5,7 @@
     <div class="column is-two-fifth signup">
       <h3 class="title is-3">Sign In:</h3>
       <div class="field">
-        <form action="/process-signup" method="POST" enctype="multipart/form-data">
+        <form action="/process-signup" method="POST">
           <label class="label">Your Full Name:</label>
           <div class="control">
             <input class="input" type="text" name="fullName" placeholder="John Doe" minlength="2" required />
@@ -46,14 +46,14 @@
       <div class="field">
         <label class="label">Your Photo:</label>
         <div class="control">
-          <input class="input" type="text" name="image" placeholder="Url of your photo !">
+          <input class="input" type="url" name="image" placeholder="Url of your photo !">
         </div>
         <br>
         <p><b>OR</b></p>
         <br>
         <div class="file">
           <label class="file-label">
-            <input class="file-input" type="file" name="pictureUpload">
+            <input class="file-input" type="file">
             <span class="file-cta">
               <span class="file-icon">
                 <i class="fas fa-upload"></i>
