@@ -86,9 +86,15 @@
 
     <!-- right panel -->
     <div class="dashboard-panel is-small is-scrollable is-hidden-mobile has-background-light">
-      <figure class="image is-128x128">
-        <img class="is-rounded" src="{{currentUser.image}}">
-      </figure>
+      <div class="center">
+        <figure class="image is-128x128">
+          <img class="is-rounded" src="{{currentUser.image}}">
+        </figure>
+      </div>
+      <br>
+      <div class="center">
+        <p class="title is-5">Hello {{currentUser.fullName}}</p>
+      </div>
 
       <hr class="has-background-grey" />
 

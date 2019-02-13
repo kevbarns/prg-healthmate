@@ -1,1 +1,8 @@
-Fav REc
+<p>Your favorites recipes</p>
+
+{{#each userFavorites}}
+<ul>
+  <li>{{this.recipes.title}}</li>
+</ul>
+<button><a href="/delete-fav-recipe/{{this.recipes._id}}"> DELETE </a></button>
+{{/each}}
