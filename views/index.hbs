@@ -10,8 +10,13 @@
         <p class="navbar-item has-text-dark">MISLEADING FACTS ABOUT FOOD</p>
       </div>
       <div class="column right">
+        {{#if currentUser}}
+        <a href="/recipes-list" class="navbar-item has-background-primary">GO TO DASHBOARD &nbsp;<i
+            class="fas fa-sign-in-alt fa-lg"></i></a>
+        {{else}}
         <a href="/signup-login" class="navbar-item has-background-primary">SIGN UP / LOG IN &nbsp;<i
             class="fas fa-sign-in-alt fa-lg"></i></a>
+        {{/if}}
         <figure class="navbar-item image has-text-dark center">
           <i class="fas fa-bars fa-lg"></i>
         </figure>

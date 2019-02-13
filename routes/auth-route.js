@@ -4,6 +4,14 @@ const router = express.Router();
 const User = require("../models/user-model.js");
 const passport = require("passport");
 
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  } else {
+    res.redirect("/signup-login");
+  }
+}
+
 router.get("/signup-login", (req, res, next) => {
   res.render("auth-views/signup-login.hbs");
 });

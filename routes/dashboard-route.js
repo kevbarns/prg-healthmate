@@ -4,12 +4,20 @@ const router = express.Router();
 const Recipes = require("../models/recipes-model.js");
 const User = require("../models/user-model.js");
 
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  } else {
+    res.redirect("/signup-login");
+  }
+}
+
 router.use("/", (req, res, next) => {
   res.locals.layout = "dashboard/dashboard-layout.hbs";
   next();
 });
 
-router.get("/recipes-list", (req, res, next) => {
+router.get("/recipes-list", ensureAuthenticated, (req, res, next) => {
   Recipes.find()
     .then(recipesResult => {
       console.log("Recipes added");
@@ -19,7 +27,7 @@ router.get("/recipes-list", (req, res, next) => {
     .catch(err => next(err));
 });
 
-router.get("/oneRecipe/:recipeId", (req, res, next) => {
+router.get("/oneRecipe/:recipeId", ensureAuthenticated, (req, res, next) => {
   const { recipeId } = req.params;
 
   Recipes.findById(recipeId)
@@ -66,7 +74,7 @@ router.get("/delete-fav-recipe/:recipeId", (req, res, next) => {
     .catch(err => next(err));
 });
 
-router.get("/favorite-recipe", (req, res, next) => {
+router.get("/favorite-recipe", ensureAuthenticated, (req, res, next) => {
   User.findById(req.user._id)
     .populate("favorites.recipes")
     .then(data => {
