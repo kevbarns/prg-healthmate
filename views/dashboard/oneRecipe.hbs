@@ -55,11 +55,13 @@
 <br>
 <div class="columns">
   <div class="column is-one-third">
-    <p class="title is-4">What do you need:</p>
+    <p class="title is-4">What you need:</p>
     {{#each oneRecipe.ingredientList}}
-    <ul>
-      <li><b>-</b> {{this}}</li>
-    </ul>
+    <div class="content">
+      <ul>
+        <li>{{this}}</li>
+      </ul>
+    </div>
     {{/each}}
   </div>
   <div class="is-divider-vertical"></div>

@@ -29,4 +29,8 @@ router.get("/oneRecipe/:recipeId", (req, res, next) => {
     .catch(err => next(err));
 });
 
+router.get("/favorite-recipe", (req, res, next) => {
+  res.render("dashboard/favorite-recipe.hbs");
+});
+
 module.exports = router;

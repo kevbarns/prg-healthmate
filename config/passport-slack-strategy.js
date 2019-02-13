@@ -8,16 +8,16 @@ passport.use(
     {
       clientID: process.env.SLACK_ID,
       clientSecret: process.env.SLACK_SECRET,
-      scope: ["identity.basic", "identity.email"],
+      scope: ["identity.basic", "identity.email", "identity.avatar"],
       passReqToCallback: true,
       proxy: true
     },
     (req, accessToken, refreshToken, profile, done) => {
-      console.log("GOOGLE USER __________", profile);
+      console.log("SLACK USER __________", profile);
 
-      const { displayName, emails } = profile;
+      const { name, email, image } = profile;
 
-      User.findOne({ email: { $eq: profile.user.email } })
+      User.findOne({ email: { $eq: email } })
         .then(userDoc => {
           if (userDoc) {
             done(null, userDoc);
@@ -25,8 +25,10 @@ passport.use(
           }
 
           User.create({
-            fullName: profile.displayName,
-            email: profile.user.email
+            fullName: profile.user.name,
+            email: profile.user.email,
+            image: profile.user.image_512,
+            slackID: profile.id
           })
             .then(userDoc => {
               req.session.returnTo = "/get-started";

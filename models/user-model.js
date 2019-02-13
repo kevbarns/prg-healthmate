@@ -14,6 +14,7 @@ const userSchema = new Schema(
       enum: ["normal", "admin"],
       default: "normal"
     },
+    favorites: [{ recipes: { type: Schema.Types.ObjectId, ref: "Recipes" } }],
     slackID: String,
     googleID: String
   },

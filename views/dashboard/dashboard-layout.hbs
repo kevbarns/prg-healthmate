@@ -27,7 +27,7 @@
         <ul class="menu-list">
           <li><a href="/recipes-list">Recipes</a></li>
           <li><a>My Calendar</a></li>
-          <li><a>Favorite Recipes ❤️</a></li>
+          <li><a href="/favorite-recipe">Favorite Recipes ❤️</a></li>
         </ul>
         <p class="menu-label">
           Title
@@ -85,10 +85,10 @@
     </div>
 
     <!-- right panel -->
-    <div class="dashboard-panel is-small is-scrollable has-background-light">
-      <p class="is-size-4 has-text-weight-light">
-        Image Profile <br>
-      </p>
+    <div class="dashboard-panel is-small is-scrollable is-hidden-mobile has-background-light">
+      <figure class="image is-128x128">
+        <img class="is-rounded" src="{{currentUser.image}}">
+      </figure>
 
       <hr class="has-background-grey" />
 
