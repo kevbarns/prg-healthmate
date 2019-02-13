@@ -27,7 +27,7 @@ passport.use(
           User.create({
             fullName: profile.user.name,
             email: profile.user.email,
-            image: profile.user.image_512,
+            image: profile.user.image_192,
             slackID: profile.id
           })
             .then(userDoc => {

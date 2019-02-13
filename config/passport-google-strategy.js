@@ -24,7 +24,12 @@ passport.use(
             return;
           }
 
-          User.create({ fullName: displayName, email: emails[0].value })
+          User.create({
+            fullName: displayName,
+            email: emails[0].value,
+            image: profile.photos[0].value.replace("?sz=50", "?sz=128"),
+            googleID: profile.id
+          })
             .then(userDoc => {
               req.session.returnTo = "/get-started";
               done(null, userDoc);
