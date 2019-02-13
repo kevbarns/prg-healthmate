@@ -214,7 +214,15 @@
     "lipid": 12,
     "prepTime": 7,
     "cookingTime": 120,
-    "ingredientList": "[\"Pois chiches cuits : 200g\",\"Protéine végétale en poudre parfum vanille : 3/4 scoop (25g)\",Dattes Medjool dénoyautées : 50g\",\"Pépites de chocolat noir : 20g\",\"Liquiflav ou arôme vanille : quelques gouttes\",\"Cannelle\",\"Sel\"]",
+    "ingredientList": [
+      "Pois chiches cuits : 200g",
+      "Protéine végétale en poudre parfum vanille : 3/4 scoop (25g)",
+      "Dattes Medjool dénoyautées : 50g",
+      "Pépites de chocolat noir : 20g",
+      "Liquiflav ou arôme vanille : quelques gouttes",
+      "Cannelle",
+      "Sel"
+    ],
     "image": "https://d3isvudwy9gyyx.cloudfront.net/b11.png"
   },
   {
