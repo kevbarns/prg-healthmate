@@ -2,7 +2,7 @@
 
 {{#each userFavorites}}
 <ul>
-  <li>{{this.recipes.title}}</li>
+  <li><a href="/oneRecipe/{{this.recipes._id}}">{{this.recipes.title}}</a></li>
 </ul>
 <button><a href="/delete-fav-recipe/{{this.recipes._id}}"> DELETE </a></button>
 {{/each}}
