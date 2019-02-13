@@ -24,10 +24,10 @@ router.post("/process-user-data", (req, res, next) => {
         .limit(1)
         .then(dietRef => {
           // res.json(dietRef);
-          const {dietReference} = dietRef[0]._id;
+          const dietId = dietRef[0]._id;
           UserData.create({
             userId,
-            dietReference,
+            dietReference: {data: dietId},
             water: calcs.water,
             basalMetabolism: calcs.basalMetabolism,
             metabolismNeed: calcs.metabolismNeed,
@@ -60,9 +60,12 @@ router.get("/get-started-final", (req, res, next) => {
   UserData.find({userId: {$eq: userId}})
     .sort({createdAt: -1})
     .limit(1)
+    .populate("dietReference.data")
     .then(data => {
       // res.json(data);
+      const macros = getMacro(data);
       res.locals.data = data[0];
+      res.locals.diet = macros;
       res.render("steps-final.hbs");
     })
     .catch(err => next(err));
@@ -117,7 +120,7 @@ function generalCalcul(data) {
       break;
   }
 
-  water = Math.round((weight - 20) * 15 + 1500);
+  protein = water = Math.round((weight - 20) * 15 + 1500);
   metabolismNeed = Math.round(basalMetabolism * activityRatio);
   bmi = Math.round((weight / Math.pow(height, 2)) * 10000);
   objectiveNeed = Math.round(metabolismNeed + metabolismNeed * dietRatio);
@@ -125,5 +128,17 @@ function generalCalcul(data) {
   return {water, basalMetabolism, metabolismNeed, bmi, objectiveNeed};
 }
 
+function getMacro(data) {
+  const protein = data[0].dietReference[0].data.protein,
+    lipid = data[0].dietReference[0].data.lipid,
+    carbs = data[0].dietReference[0].data.carbs,
+    objectiveNeed = data[0].objectiveNeed;
+
+  userProtein = Math.round((objectiveNeed * protein) / 100 / 4);
+  userLipid = Math.round((objectiveNeed * lipid) / 100 / 4);
+  userCarbs = Math.round((objectiveNeed * carbs) / 100 / 9);
+
+  return {userProtein, userLipid, userCarbs};
+}
 
 module.exports = router;

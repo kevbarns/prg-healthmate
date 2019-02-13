@@ -8,7 +8,7 @@ const UserDataSchema = new Schema(
     bmi: {type: Number},
     bodyFat: {type: Number},
     water: {type: Number},
-    dietReference: {type: Schema.Types.ObjectId, ref: "DietData"},
+    dietReference: [{data:{type: Schema.Types.ObjectId, ref: "DietData"}}],
     objectiveNeed: {type: Number},
     metabolismNeed: {type: Number}
   },
