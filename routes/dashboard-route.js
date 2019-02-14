@@ -127,6 +127,10 @@ function getMacro(data) {
 }
 
 function findUserRecipes(recipesList, userData) {
+
+  // get the ratio of my macros
+  // calcul the ratio of all the recipes between protein to carbs
+  // recover the recipes that have the best protein ratio against carbs
   let bProt = userData.macros[0].protein,
     bCarbs = userData.macros[0].carbs,
     bLipid = userData.macros[0].lipid;
