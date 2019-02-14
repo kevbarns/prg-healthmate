@@ -10,7 +10,8 @@ const UserDataSchema = new Schema(
     water: {type: Number},
     dietReference: [{data: {type: Schema.Types.ObjectId, ref: "DietData"}}],
     objectiveNeed: {type: Number},
-    metabolismNeed: {type: Number}
+    metabolismNeed: {type: Number},
+    macros: {type: Array}
   },
   {timestamps: true}
 );

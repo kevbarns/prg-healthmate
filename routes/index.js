@@ -63,10 +63,21 @@ router.get("/get-started-final", (req, res, next) => {
     .populate("dietReference.data")
     .then(data => {
       // res.json(data);
-      const macros = getMacro(data);
-      res.locals.data = data[0];
-      res.locals.diet = macros;
-      res.render("steps-final.hbs");
+      const macroz = getMacro(data);
+      const protein = macroz.userProtein;
+      const carbs = macroz.userCarbs;
+      const lipid = macroz.userLipid;
+      console.log(macroz.userProtein);
+      UserData.findOneAndUpdate(
+        {userId: {$eq: userId}},
+        {$set: {macros: {protein, carbs, lipid}}}
+      )
+        .then(() => {
+          res.locals.data = data[0];
+          res.locals.diet = macroz;
+          res.render("steps-final.hbs");
+        })
+        .catch();
     })
     .catch(err => next(err));
 });
@@ -79,9 +90,9 @@ function generalCalcul(data) {
     objectiveNeed = 0;
 
   if (gender === "Female") {
-    basalMetabolism = Math.round(10 * weight + 6.25 * height - 5 * age - 5);
+    basalMetabolism = Math.round(10 * weight + 6.25 * height - 5 * age - 161);
   } else {
-    basalMetabolism = Math.round(10 * weight + 6.25 * height - 5 * age + 161);
+    basalMetabolism = Math.round(10 * weight + 6.25 * height - 5 * age + 5);
   }
 
   switch (activity) {
@@ -135,8 +146,8 @@ function getMacro(data) {
     objectiveNeed = data[0].objectiveNeed;
 
   userProtein = Math.round((objectiveNeed * protein) / 100 / 4);
-  userLipid = Math.round((objectiveNeed * lipid) / 100 / 4);
-  userCarbs = Math.round((objectiveNeed * carbs) / 100 / 9);
+  userLipid = Math.round((objectiveNeed * lipid) / 100 / 9);
+  userCarbs = Math.round((objectiveNeed * carbs) / 100 / 4);
 
   return {userProtein, userLipid, userCarbs};
 }

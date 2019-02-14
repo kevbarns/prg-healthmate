@@ -95,6 +95,20 @@ router.get("/favorite-recipe", ensureAuthenticated, (req, res, next) => {
     });
 });
 
+router.get("/make-my-day", (req, res, next) => {
+  const userId = req.user._id;
+  Recipes.find()
+    .then(recipesList => {
+      UserData.findOne({userId: {$eq: userId}})
+        .then(userData => {
+          // call function
+          const dailyRecipes = findUserRecipes(recipesList, userData);
+        })
+        .catch();
+    })
+    .catch(err => next(err));
+});
+
 function getMacro(data) {
   const protein = data[0].dietReference[0].data.protein,
     lipid = data[0].dietReference[0].data.lipid,
@@ -102,17 +116,44 @@ function getMacro(data) {
     objectiveNeed = data[0].objectiveNeed;
 
   userProtein = Math.round((objectiveNeed * protein) / 100 / 4);
-  userLipid = Math.round((objectiveNeed * lipid) / 100 / 4);
-  userCarbs = Math.round((objectiveNeed * carbs) / 100 / 9);
+  userLipid = Math.round((objectiveNeed * lipid) / 100 / 9);
+  userCarbs = Math.round((objectiveNeed * carbs) / 100 / 4);
 
   return {userProtein, userLipid, userCarbs};
 }
 
-function findUserRecipes(recipesList) {
+function findUserRecipes(recipesList, userData) {
+  let bProt = userData.macros[0].protein,
+    bCarbs = userData.macros[0].carbs,
+    bLipid = userData.macros[0].lipid;
+  console.log("Starting Macros : " + bProt, bCarbs, bLipid);
+
+  // Shuffle recipesList
+  recipesList.sort(function() {
+    return 0.5 - Math.random();
+  });
+
+  let matchedRecipes = [];
+  recipesList.forEach(e => {
+    const recipeProt = e.protein,
+      recipeCarbs = e.carbs,
+      recipeLipid = e.lipid;
+    if (bProt >= recipeProt && bCarbs >= recipeCarbs && bLipid >= recipeLipid) {
+      bProt -= recipeProt;
+      bCarbs -= recipeCarbs;
+      bLipid -= recipeLipid;
+      console.log("One interation" + bProt, bCarbs, bLipid);
+      matchedRecipes.push(e._id);
+      console.log(matchedRecipes);
+    }
+  });
   // foreach recipes
-  // while (userProtein <= recipesList.protein) 
+  // while (userProtein <= recipesList.protein)
   // if (userCarbs < recipesList.Carbs)
   // if (userLipid < recipesList.Lipid)
   // push(recipesList._id)
+  // loop over the recipes
+  // less than protein
+  // if time I find a recipe, i substract to the macros and push the recipes ID into an array
 }
 module.exports = router;
