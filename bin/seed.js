@@ -9,7 +9,7 @@ const dietData = require("./dietData.json");
 const recipesData = require("./recipesData.json");
 
 mongoose
-  .connect("mongodb://localhost/myhealthmate", {useNewUrlParser: true})
+  .connect(process.env.MONGODB_URI, {useNewUrlParser: true})
   .then(x => {
     console.log(
       `Connected to Mongo! Database name: "${x.connections[0].name}"`
