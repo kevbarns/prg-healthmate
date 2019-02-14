@@ -16,7 +16,7 @@ const passport = require("passport");
 require("./config/passport-setup.js");
 
 mongoose
-  .connect("mongodb://localhost/myhealthmate", { useNewUrlParser: true })
+  .connect(process.env.MONGODB_URI, { useNewUrlParser: true })
   .then(x => {
     console.log(
       `Connected to Mongo! Database name: "${x.connections[0].name}"`
@@ -61,7 +61,7 @@ app.use(
   session({
     saveUninitialized: true,
     resave: true,
-    secret: "hMDWkMlbNiofzC8pQ4E9mZ$*8x%^UfgJop@Ut2*",
+    secret: process.env.SESSION_SECRET,
     store: new MongoStore({ mongooseConnection: mongoose.connection })
   })
 );
