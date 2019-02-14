@@ -29,7 +29,7 @@
           <li><a>My Calendar</a></li>
           <li><a href="/favorite-recipe">Favorite Recipes ❤️</a></li>
         </ul>
-        <p class="menu-label">
+        {{!-- <p class="menu-label">
           Title
         </p>
         <ul class="menu-list">
@@ -40,7 +40,7 @@
               <li><a>Submenu 1</a></li>
             </ul>
           </li>
-        </ul>
+        </ul> --}}
       </aside>
     </div>
 
@@ -97,16 +97,21 @@
       </div>
 
       <hr class="has-background-grey" />
-
-      <a class="is-size-4">
-        User details
-      </a>
+      <div class="content">
+        <p class="is-size-6"> BMR : {{userData.basalMetabolism}} kCal </p>
+        <p class="is-size-6"> Objective : {{userData.objectiveNeed}} kCal </p>
+        <p class="is-size-6"> Daily Macros : {{dietData.name}}
+          <ul>
+            <li>Protein : {{userMacros.userProtein}}g </li>
+            <li>Carbs : {{userMacros.userCarbs}}g</li>
+            <li>Lipid : {{userMacros.userLipid}}g</li>
+          </ul>
+        </p>
+        <p class="is-size-6">Water : {{userData.water}} ml </p>
+        <p class="is-size-6"> </p>
+      </div>
       <br />
-      <a class="is-size-4">
-        User data
-      </a>
-      <br />
-      <br><br><br><br> <a href="/logout">Log Out</a>
+      <br><br> <a class="button is-dark is-small" href="/logout">Log Out</a>
     </div>
   </div>
   <script src="/javascripts/script.js"></script>

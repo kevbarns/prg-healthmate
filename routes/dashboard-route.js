@@ -3,6 +3,7 @@ const router = express.Router();
 
 const Recipes = require("../models/recipes-model.js");
 const User = require("../models/user-model.js");
+const UserData = require("../models/user-data-model.js");
 
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
@@ -13,22 +14,33 @@ function ensureAuthenticated(req, res, next) {
 }
 
 router.use("/", (req, res, next) => {
+  const userId = req.user._id;
   res.locals.layout = "dashboard/dashboard-layout.hbs";
   next();
 });
 
 router.get("/recipes-list", ensureAuthenticated, (req, res, next) => {
+  const userId = req.user._id;
   Recipes.find()
     .then(recipesResult => {
-      console.log("Recipes added");
-      res.locals.recipesList = recipesResult;
-      res.render("dashboard/recipes-list.hbs");
+      UserData.find({userId: {$eq: userId}})
+        .populate("dietReference.data")
+        .then(userData => {
+          // res.json(userData);
+          const userMacros = getMacro(userData);
+          res.locals.userMacros = userMacros;
+          res.locals.userData = userData[0];
+          res.locals.dietData = userData[0].dietReference[0].data;
+          res.locals.recipesList = recipesResult;
+          res.render("dashboard/recipes-list.hbs");
+        })
+        .catch(err => next(err));
     })
     .catch(err => next(err));
 });
 
 router.get("/oneRecipe/:recipeId", ensureAuthenticated, (req, res, next) => {
-  const { recipeId } = req.params;
+  const {recipeId} = req.params;
 
   Recipes.findById(recipeId)
     .then(recipeData => {
@@ -39,7 +51,7 @@ router.get("/oneRecipe/:recipeId", ensureAuthenticated, (req, res, next) => {
 });
 
 router.get("/add-fav-recipe/:recipeId", (req, res, next) => {
-  const { recipeId } = req.params;
+  const {recipeId} = req.params;
 
   const isFavorited = req.user.favorites.some(oneId => {
     return oneId.recipes.toString() === recipeId.toString();
@@ -50,8 +62,8 @@ router.get("/add-fav-recipe/:recipeId", (req, res, next) => {
   } else {
     User.findByIdAndUpdate(
       req.user._id,
-      { $push: { favorites: { recipes: recipeId } } },
-      { runValidators: true }
+      {$push: {favorites: {recipes: recipeId}}},
+      {runValidators: true}
     )
       .then(data => {
         res.redirect(`/oneRecipe/${recipeId}`);
@@ -61,12 +73,12 @@ router.get("/add-fav-recipe/:recipeId", (req, res, next) => {
 });
 
 router.get("/delete-fav-recipe/:recipeId", (req, res, next) => {
-  const { recipeId } = req.params;
+  const {recipeId} = req.params;
 
   User.findByIdAndUpdate(
     req.user._id,
-    { $pull: { favorites: { recipes: recipeId } } },
-    { runValidators: true }
+    {$pull: {favorites: {recipes: recipeId}}},
+    {runValidators: true}
   )
     .then(data => {
       res.redirect("/favorite-recipe");
@@ -83,4 +95,24 @@ router.get("/favorite-recipe", ensureAuthenticated, (req, res, next) => {
     });
 });
 
+function getMacro(data) {
+  const protein = data[0].dietReference[0].data.protein,
+    lipid = data[0].dietReference[0].data.lipid,
+    carbs = data[0].dietReference[0].data.carbs,
+    objectiveNeed = data[0].objectiveNeed;
+
+  userProtein = Math.round((objectiveNeed * protein) / 100 / 4);
+  userLipid = Math.round((objectiveNeed * lipid) / 100 / 4);
+  userCarbs = Math.round((objectiveNeed * carbs) / 100 / 9);
+
+  return {userProtein, userLipid, userCarbs};
+}
+
+function findUserRecipes(recipesList) {
+  // foreach recipes
+  // while (userProtein <= recipesList.protein) 
+  // if (userCarbs < recipesList.Carbs)
+  // if (userLipid < recipesList.Lipid)
+  // push(recipesList._id)
+}
 module.exports = router;
