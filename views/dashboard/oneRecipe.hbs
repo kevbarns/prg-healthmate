@@ -1,5 +1,5 @@
-<h1 class="title is-1 center">{{oneRecipe.title}}</h1>
-<div class="card">
+<h1 class="title is-1 center"><u>{{oneRecipe.title}}:</u></h1>
+<div class="">
   <div class="columns">
     <div class="column center">
       <div class="card-image recipes-image">
@@ -8,7 +8,7 @@
         </figure>
       </div>
     </div>
-    <div class="column">
+    <div class="column myinfo">
       <div class="card-content">
         <nav class="level is-mobile level-right">
           <div class="level-left">
@@ -32,15 +32,15 @@
         <div class="media">
           <div class="media-content recipe-list">
             <br>
-            <p>Prepration time: <b>{{oneRecipe.prepTime}}</b> minutes / Cooking time: <b>{{oneRecipe.cookingTime}}</b>
+            <p> Prepration time: <b>{{oneRecipe.prepTime}}</b> minutes / Cooking time: <b>{{oneRecipe.cookingTime}}</b>
               minutes</p>
             <br>
             <ul>
-              <li>Kilo Calories: <b>{{oneRecipe.kCal}}</b></li>
+              <li> Kilo Calories: <b>{{oneRecipe.kCal}} </b></li>
               <br>
-              <li>Proteins: <b>{{oneRecipe.protein}}</b></li>
+              <li> Proteins: <b>{{oneRecipe.protein}} </b></li>
               <br>
-              <li>Carbohydrates: <b>{{oneRecipe.carbs}}</b></li>
+              <li> Carbohydrates: <b>{{oneRecipe.carbs}} </b></li>
               <br>
               <li>Lipids: <b>{{oneRecipe.lipid}}</b></li>
               </li>
@@ -54,7 +54,7 @@
 <br>
 <br>
 <div class="columns">
-  <div class="column is-one-third">
+  <div class="column is-one-third myinfo">
     <p class="title is-4">What you need:</p>
     {{#each oneRecipe.ingredientList}}
     <div class="content">
@@ -67,18 +67,20 @@
   <div class="is-divider-vertical"></div>
   <div class="column">
     <p class="title is-4">Let's cook:</p>
-    <p>RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE
-      RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE
-      RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE
-      RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE
-      RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE
-      RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE
-      RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE
-      RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE
-      RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE
-      RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE
-      RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE RECETTE
+    <p>Post hanc adclinis Libano monti Phoenice, regio plena gratiarum et venustatis, urbibus decorata magnis et
+      pulchris; in quibus amoenitate celebritateque nominum Tyros excellit, Sidon et Berytus isdemque pares Emissa et
+      Damascus saeculis condita priscis.
 
+      Sed quid est quod in hac causa maxime homines admirentur et reprehendant meum consilium, cum ego idem antea multa
+      decreverim, que magis ad hominis dignitatem quam ad rei publicae necessitatem pertinerent? Supplicationem
+      quindecim dierum decrevi sententia mea. Rei publicae satis erat tot dierum quot C. Mario ; dis immortalibus non
+      erat exigua eadem gratulatio quae ex maximis bellis. Ergo ille cumulus dierum hominis est dignitati tributus.
+
+      Ciliciam vero, quae Cydno amni exultat, Tarsus nobilitat, urbs perspicabilis hanc condidisse Perseus memoratur,
+      Iovis filius et Danaes, vel certe ex Aethiopia profectus Sandan quidam nomine vir opulentus et nobilis et
+      Anazarbus auctoris vocabulum referens, et Mopsuestia vatis illius domicilium Mopsi, quem a conmilitio Argonautarum
+      cum aureo vellere direpto redirent, errore abstractum delatumque ad Africae litus mors repentina consumpsit, et ex
+      eo cespite punico tecti manes eius heroici dolorum varietati medentur plerumque sospitales.
     </p>
   </div>
 </div>

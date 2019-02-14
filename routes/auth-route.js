@@ -39,7 +39,7 @@ router.get("/auth/slack", passport.authenticate("slack"));
 router.get(
   "/slack/user-info",
   passport.authenticate("slack", {
-    successReturnToOrRedirect: "/recipes-list",
+    successReturnToOrRedirect: "/dashboard-index",
     failureRedirect: "/signup-login"
   })
 );
@@ -58,7 +58,7 @@ router.get(
   "/google/user-info",
   passport.authenticate("google", {
     failureRedirect: "/signup-login",
-    successReturnToOrRedirect: "/recipes-list"
+    successReturnToOrRedirect: "/dashboard-index"
   })
 );
 
@@ -85,7 +85,7 @@ router.post("/process-login", (req, res, next) => {
 
       req.logIn(userDoc, () => {
         // req.flash ?
-        res.redirect("/recipes-list");
+        res.redirect("/dashboard-index");
       });
     })
     .catch(err => next(err));

@@ -17,6 +17,10 @@ router.use("/", (req, res, next) => {
   next();
 });
 
+router.get("/dashboard-index", ensureAuthenticated, (req, res, next) => {
+  res.render("dashboard/dashboard-index.hbs");
+});
+
 router.get("/recipes-list", ensureAuthenticated, (req, res, next) => {
   Recipes.find()
     .then(recipesResult => {

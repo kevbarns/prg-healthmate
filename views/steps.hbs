@@ -1,141 +1,144 @@
-<div class="section">
-  <ul class="steps is-narrow is-medium is-centered has-content-centered">
-    <li class="steps-segment">
-      <p class="has-text-dark">
-        <span class="steps-marker">
+<div class="cont">
+  <div class="section">
+    <ul class="steps is-narrow is-medium is-centered has-content-centered">
+      <li class="steps-segment">
+        <p class="has-text-dark">
+          <span class="steps-marker">
+            <span class="icon">
+              <i class="fas fa-sign-in-alt"></i>
+            </span>
+          </span>
+          <div class="steps-content">
+            <p class="heading">Sign up</p>
+          </div>
+        </p>
+      </li>
+      <li class="steps-segment is-active has-gaps">
+        <p class="has-text-dark">
+          <span class="steps-marker">
+            <span class="icon">
+              <i class="fa fa-user"></i>
+            </span>
+          </span>
+          <div class="steps-content">
+            <p class="heading">Your Profile Information</p>
+          </div>
+        </p>
+      </li>
+      <li class="steps-segment">
+        <span class="steps-marker is-hollow">
           <span class="icon">
-            <i class="fas fa-sign-in-alt"></i>
+            <i class="fa fa-check"></i>
           </span>
         </span>
         <div class="steps-content">
-          <p class="heading">Sign up</p>
+          <p class="heading">My Physical needs</p>
         </div>
-      </p>
-    </li>
-    <li class="steps-segment is-active has-gaps">
-      <p class="has-text-dark">
-        <span class="steps-marker">
-          <span class="icon">
-            <i class="fa fa-user"></i>
-          </span>
-        </span>
-        <div class="steps-content">
-          <p class="heading">Your Profile Information</p>
-        </div>
-      </p>
-    </li>
-    <li class="steps-segment">
-      <span class="steps-marker is-hollow">
-        <span class="icon">
-          <i class="fa fa-check"></i>
-        </span>
-      </span>
-      <div class="steps-content">
-        <p class="heading">My Physical needs</p>
-      </div>
-    </li>
-  </ul>
-</div>
+      </li>
+    </ul>
+  </div>
 
 
-<div class="section">
-  <form action="/process-user-data" method="post">
-    <div class="field is-horizontal">
-      <div class="field-label is-normal">
-        <label class="label">Height (cm)</label>
-      </div>
-      <div class="field-body">
-        <div class="control">
-          <input class="input" type="text" name="height" value="" placeholder="172cm" required>
+  <div class="section">
+    <form action="/process-user-data" method="post">
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">Height (cm)</label>
         </div>
-      </div>
-    </div>
-    <div class="field is-horizontal">
-      <div class="field-label is-normal">
-        <label class="label">Weight (kg)</label>
-      </div>
-      <div class="field-body">
-        <div class="control">
-          <input class="input" type="text" name="weight" value="" placeholder="72kg" required>
-        </div>
-      </div>
-    </div>
-    <div class="field is-horizontal">
-      <div class="field-label is-normal">
-        <label class="label">Sexe</label>
-      </div>
-      <div class="field-body">
-        <div class="control">
-          <label class="radio">
-            <input type="radio" name="gender" value="Male">
-            Male
-          </label>
-          <label class="radio">
-            <input type="radio" name="gender" value="Female">
-            Female
-          </label>
-        </div>
-      </div>
-    </div>
-    <div class="field is-horizontal">
-      <div class="field-label is-normal">
-        <label class="label">Age</label>
-      </div>
-      <div class="field-body">
-        <div class="control">
-          <input class="input" type="number" name="age" value="" />
-        </div>
-      </div>
-    </div>
-    <div class="field is-horizontal">
-      <div class="field-label is-normal">
-        <label class="label">Activity</label>
-      </div>
-      <div class="field-body">
-        <div class="control">
-          <div class="select">
-            <select name="activity">
-              <option disabled>Activity</option>
-              <option value="Sedentary">Sedentary : little or no excercise at all</option>
-              <option value="Little Active">Little Active : little excercise, workout 1-3 days/week</option>
-              <option value="Moderately Active">Moderately Active : moderated exercise, workout 3-5 days/week </option>
-              <option value="Very Active">Very Active : Intense exercise, workou 6-7 days/week </option>
-              <option value="Hyper Active">Hyper Active : Very intense exercise, physical work,
-                workout 2 hours or more</option>
-            </select>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="field is-horizontal">
-      <div class="field-label is-normal">
-        <label class="label">Diet Objective</label>
-      </div>
-      <div class="field-body">
-        <div class="control">
-          <div class="select">
-            <select name="objective" id="">
-              <option value="Weight Loss">Weight Loss : BMR minus 20%</option>
-              <option value="Slow Weight Loss">Slow Weight Loss : BMR minus 10%</option>
-              <option value="Maintain" selected>Maintenai Weight : BMR</option>
-              <option value="Slow Weight Gain">Slow Weight Gain : BMR plus 10%</option>
-              <option value="Weight Gain">Weight Gain : BMR plus 20%</option>
-            </select>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="field is-horizontal">
-      <div class="field-label"></div>
-      <div class="field-body">
-        <div class="field">
+        <div class="field-body">
           <div class="control">
-            <button class="button is-primary">
-              Save my Profile
-            </button>
+            <input class="input" type="text" name="height" value="" placeholder="172cm" required>
           </div>
         </div>
       </div>
-    </div>
-  </form>
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">Weight (kg)</label>
+        </div>
+        <div class="field-body">
+          <div class="control">
+            <input class="input" type="text" name="weight" value="" placeholder="72kg" required>
+          </div>
+        </div>
+      </div>
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">Sexe</label>
+        </div>
+        <div class="field-body">
+          <div class="control">
+            <label class="radio">
+              <input type="radio" name="gender" value="Male">
+              Male
+            </label>
+            <label class="radio">
+              <input type="radio" name="gender" value="Female">
+              Female
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">Age</label>
+        </div>
+        <div class="field-body">
+          <div class="control">
+            <input class="input" type="number" name="age" value="" />
+          </div>
+        </div>
+      </div>
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">Activity</label>
+        </div>
+        <div class="field-body">
+          <div class="control">
+            <div class="select">
+              <select name="activity">
+                <option disabled>Activity</option>
+                <option value="Sedentary">Sedentary : little or no excercise at all</option>
+                <option value="Little Active">Little Active : little excercise, workout 1-3 days/week</option>
+                <option value="Moderately Active">Moderately Active : moderated exercise, workout 3-5 days/week
+                </option>
+                <option value="Very Active">Very Active : Intense exercise, workou 6-7 days/week </option>
+                <option value="Hyper Active">Hyper Active : Very intense exercise, physical work,
+                  workout 2 hours or more</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">Diet Objective</label>
+        </div>
+        <div class="field-body">
+          <div class="control">
+            <div class="select">
+              <select name="objective" id="">
+                <option value="Weight Loss">Weight Loss : BMR minus 20%</option>
+                <option value="Slow Weight Loss">Slow Weight Loss : BMR minus 10%</option>
+                <option value="Maintain" selected>Maintenai Weight : BMR</option>
+                <option value="Slow Weight Gain">Slow Weight Gain : BMR plus 10%</option>
+                <option value="Weight Gain">Weight Gain : BMR plus 20%</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="field is-horizontal">
+        <div class="field-label"></div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <button class="button is-primary">
+                Save my Profile
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>

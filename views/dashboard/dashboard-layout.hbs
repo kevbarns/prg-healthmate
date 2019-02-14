@@ -17,17 +17,18 @@
 <body>
   <div class="dashboard">
     <!-- left panel -->
-    <div class="dashboard-panel is-small has-thick-padding is-hidden-mobile has-background-light">
+    <div class="dashboard-panel is-small has-thick-padding is-hidden-mobile has-background-grey-lighter">
       <p class="has-text-centered">MY HEALTH MATE</p>
       <hr class="has-background-grey" />
       <aside class="menu has-text-white">
         <p class="menu-label">
           General
         </p>
-        <ul class="menu-list">
-          <li><a href="/recipes-list">Recipes</a></li>
-          <li><a>My Calendar</a></li>
+        <ul class="menu-list is-centered">
+          <li><a href="/dashboard-index">Dashboard *️⃣</a></li>
+          <li><a href="/recipes-list">Recipes 📝</a></li>
           <li><a href="/favorite-recipe">Favorite Recipes ❤️</a></li>
+          <li><a>My Calendar 📅</a></li>
         </ul>
         <p class="menu-label">
           Title
@@ -85,7 +86,7 @@
     </div>
 
     <!-- right panel -->
-    <div class="dashboard-panel is-small is-scrollable is-hidden-mobile has-background-light">
+    <div class="dashboard-panel is-small is-scrollable is-hidden-mobile has-background-grey-lighter">
       <div class="center">
         <figure class="image is-128x128">
           <img class="is-rounded" src="{{currentUser.image}}">
@@ -105,8 +106,9 @@
       <a class="is-size-4">
         User data
       </a>
-      <br />
-      <br><br><br><br> <a href="/logout">Log Out</a>
+      <div class="logout center">
+        <a class="title is-5" href="/logout">LOG OUT</a>
+      </div>
     </div>
   </div>
   <script src="/javascripts/script.js"></script>
