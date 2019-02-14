@@ -38,13 +38,21 @@ a {
   margin: 50px;
 }
 
+.logout a {
+  color: red;
+}
+
 .recipes-image {
+  max-width: 320px;
+}
+
+.index-image {
   max-width: 320px;
 }
 
 .recipe-list a {
   list-style: none;
-  color: #7da944;
+  color: #fa5050;
 }
 
 .icon-reply {
@@ -57,6 +65,48 @@ a {
 
 .icon-like {
   color: red;
+}
+
+.form-page {
+  background-image: url("/images/HD-Fruit-Image-white.png");
+}
+
+.cont {
+  background-image: url("/images/Red-Apples-Fruits-white.png");
+  height: 100vh;
+}
+
+.mycard {
+  padding: 60px;
+}
+
+.myinfo {
+  background-color: #ececec;
+}
+
+.modal {
+  padding-top: 100px;
+}
+
+.objectFit {
+  object-fit: contain;
+}
+
+.fav-recip {
+  height: 100vh;
+  background-image: url("/images/fridge-white.png");
+}
+
+.fav-list p {
+  color: black;
+}
+
+.recipe-fav-title {
+  padding: 50px;
+}
+
+.fav-item {
+  color: black;
 }
 
 // HELPERS

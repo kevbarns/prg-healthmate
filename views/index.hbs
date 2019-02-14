@@ -5,13 +5,135 @@
         <p class="navbar-item has-text-dark">HEALTHMATE</p>
       </div>
       <div class="column center desktop">
-        <p class="navbar-item has-text-dark">WHAT IS YOUR BMR ?</p>
-        <p class="navbar-item has-text-dark">WHAT TYPE OF FOODIE ARE YOU ? </p>
-        <p class="navbar-item has-text-dark">MISLEADING FACTS ABOUT FOOD</p>
+        <a class="navbar-item has-text-dark" id="bmi-button">WHAT IS YOUR BMI ?</a>
+
+
+        {{!-- _________________________________________- MODAL - ____________________________________________________________ --}}
+
+        <div class="modal" id="bmi-info">
+          <div class="modal-background"></div>
+          <div class="modal-card">
+            <header class="modal-card-head">
+              <p class="modal-card-title center">WHAT IS YOUR BMI ?</p>
+              <button class="delete" id="close-bmi" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img class="objectFit" src="/images/ChartBMI.jpg" alt="Placeholder image">
+                  </figure>
+                </div>
+                <div class="card-content">
+                  <div class="media">
+
+                    <div class="media-content">
+                    </div>
+                  </div>
+                  <div class="content">
+                    <p class="is-capitalized is-centered">Body mass index, or BMI, is a measure of body size. It
+                      combines a person's
+                      weight with their
+                      height. The results of a BMI measurement can give an idea about whether a person has the correct
+                      weight for their height.</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <footer class="modal-card-foot">
+            </footer>
+          </div>
+        </div>
+
+
+        <a class="navbar-item has-text-dark" id="foodie-button">WHAT TYPE OF FOODIE ARE YOU ? </a>
+
+        {{!-- _________________________________________- MODAL - ____________________________________________________________ --}}
+
+        <div class="modal" id="foodie-info">
+          <div class="modal-background"></div>
+          <div class="modal-card">
+            <header class="modal-card-head">
+              <p class="modal-card-title center">WHAT TYPE OF FOODIE ARE YOU ? </p>
+              <button class="delete" id="close-foodie" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img class="objectFit" src="/images/foodie.jpg" alt="Placeholder image">
+                  </figure>
+                </div>
+                <div class="card-content">
+                  <div class="media">
+
+                    <div class="media-content">
+                    </div>
+                  </div>
+                  <div class="content">
+                    <p class="is-capitalized">Foodies are Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                      do
+                      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                      exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                      reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                      occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <footer class="modal-card-foot">
+            </footer>
+          </div>
+        </div>
+
+
+        <a class="navbar-item has-text-dark" id="facts-button">MISLEADING FACTS ABOUT FOOD</a>
+
+        {{!-- _________________________________________- MODAL - ____________________________________________________________ --}}
+
+        <div class="modal" id="facts-info">
+          <div class="modal-background"></div>
+          <div class="modal-card">
+            <header class="modal-card-head">
+              <p class="modal-card-title center">MISLEADING FACTS ABOUT FOOD</p>
+              <button class="delete" id="close-facts" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img class="objectFit" src="/images/foodfacts.png" alt="Placeholder image">
+                  </figure>
+                </div>
+                <div class="card-content">
+                  <div class="media">
+
+                    <div class="media-content">
+                    </div>
+                  </div>
+                  <div class="content">
+                    <p class="is-capitalized">Facts are Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                      do
+                      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                      exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                      reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                      occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <footer class="modal-card-foot">
+            </footer>
+          </div>
+        </div>
+
+
       </div>
       <div class="column right">
         {{#if currentUser}}
-        <a href="/recipes-list" class="navbar-item has-background-primary">GO TO DASHBOARD &nbsp;<i
+        <a href="/dashboard-index" class="navbar-item has-background-primary">GO TO DASHBOARD &nbsp;<i
             class="fas fa-sign-in-alt fa-lg"></i></a>
         {{else}}
         <a href="/signup-login" class="navbar-item has-background-primary">SIGN UP / LOG IN &nbsp;<i
@@ -25,9 +147,17 @@
   </div>
   <div class="hero-body">
     <div class="columns is-mobile is-marginless heading has-text-weight-bold">
+      {{#if currentUser}}
       <div class="column bottom is-overlay has-text-black">
-        <button class="button is-large is-inverted is-warning" style="bottom:200px;">GET STARTED</button>
+        <a class="button is-large is-inverted is-warning" style="bottom:200px;" href="/dashboard-index">GO TO
+          DASHBOARD</a>
       </div>
+      {{else}}
+      <div class="column bottom is-overlay has-text-black">
+        <a class="button is-large is-inverted is-warning" style="bottom:200px;" href="/signup-login">GET
+          STARTED </a>
+      </div>
+      {{/if}}
     </div>
     <div class="hero-foot">
     </div>

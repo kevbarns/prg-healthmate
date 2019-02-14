@@ -87,6 +87,4 @@ app.use("/", auth);
 const dashboard = require("./routes/dashboard-route");
 app.use("/", dashboard);
 
-
-
 module.exports = app;
