@@ -15,20 +15,16 @@
 </head>
 
 <body>
-  <div class="dashboard">
+  <div class="dashboard form-page">
     <!-- left panel -->
-    <div class="dashboard-panel is-small has-thick-padding is-hidden-mobile has-background-grey-lighter">
+    <div class="dashboard-panel is-small has-thick-padding is-hidden-mobile">
       <p class="has-text-centered">MY HEALTH MATE</p>
       <hr class="has-background-grey" />
       <aside class="menu has-text-white">
-        <p class="menu-label">
-          General
-        </p>
         <ul class="menu-list">
           <li><a href="/recipes-list">Recipes</a></li>
-          <li><a href='/make-my-day'>My Calendar</a></li>
-          <li><a href="/favorite-recipe">Favorite Recipes ❤️</a></li>
-          <li><a>My Calendar 📅</a></li>
+          <li><a href='/make-my-day'>Make my day</a></li>
+          <li><a href="/favorite-recipe">Favorite Recipes</a></li>
         </ul>
         {{!-- <p class="menu-label">
           Title
@@ -86,10 +82,10 @@
     </div>
 
     <!-- right panel -->
-    <div class="dashboard-panel is-small is-scrollable is-hidden-mobile has-background-grey-lighter">
+    <div class="dashboard-panel is-small is-scrollable is-hidden-mobile">
       <div class="center">
-        <figure class="image is-128x128">
-          <img class="is-rounded" src="{{currentUser.image}}">
+        <figure class="image">
+          <img class="image" src="{{currentUser.image}}">
         </figure>
       </div>
       <br>
