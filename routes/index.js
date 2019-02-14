@@ -134,7 +134,7 @@ function generalCalcul(data) {
   protein = water = Math.round((weight - 20) * 15 + 1500);
   metabolismNeed = Math.round(basalMetabolism * activityRatio);
   bmi = Math.round((weight / Math.pow(height, 2)) * 10000);
-  objectiveNeed = Math.round(metabolismNeed + metabolismNeed * dietRatio);
+  objectiveNeed = Math.round(metabolismNeed + (metabolismNeed * dietRatio));
 
   return {water, basalMetabolism, metabolismNeed, bmi, objectiveNeed};
 }
