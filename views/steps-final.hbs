@@ -1,182 +1,151 @@
-{{!-- <div class="section">
-  <ul class="steps is-narrow is-medium is-centered has-content-centered">
-    <li class="steps-segment">
-      <p class="has-text-dark">
-        <span class="steps-marker">
-          <span class="icon">
-            <i class="fas fa-sign-in-alt"></i>
-          </span>
-        </span>
-        <div class="steps-content">
-          <p class="heading">Sign up</p>
-        </div>
-      </p>
-    </li>
-    <li class="steps-segment">
-      <p class="has-text-dark">
-        <span class="steps-marker">
-          <span class="icon">
-            <i class="fa fa-user"></i>
-          </span>
-        </span>
-        <div class="steps-content">
-          <p class="heading">Your Profile Information</p>
-        </div>
-      </p>
-    </li>
-    <li class="steps-segment">
-      <span class="steps-marker is-active has-gaps">
-        <span class="icon">
-          <i class="fa fa-check"></i>
-        </span>
-      </span>
-      <div class="steps-content">
-        <p class="heading">My Physical needs</p>
-      </div>
-    </li>
-  </ul>
-</div> --}}
-
-<div class="section center">
-  <p class="title">Discover your Body Indicator :</p>
-</div>
-
-<div class="section center">
-  <div class="columns">
-    <div class="column is-one-third">
-      <div class="card">
-        <div class="card-content has-background-primary">
-          <p class="is-size-3">
-            Basal Metabolic Rate
-          </p>
-          <p class="is-size-6">What your body needs without doing anything</p>
-        </div>
-        <footer class="card-footer center">
-          <div class="card-content">
-            <p class="title">{{data.basalMetabolism}} kCal</p>
+<div class="hero is-fullheight form-page">
+  <div class="section center">
+    <p class="title">Discover your Body Indicator :</p>
+  </div>
+  <div class="section center">
+    <div class="columns">
+      <div class="column is-one-third">
+        <div class="card">
+          <div class="card-content has-background-light">
+            <p class="is-size-3">
+              Basal Metabolic Rate
+            </p>
+            <p class="is-size-6">What your body needs without doing anything</p>
           </div>
-        </footer>
-      </div>
-    </div>
-    <div class="column">
-      <article class="message is-dark">
-        <div class="message-body">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis
-          placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et
-          dictum
-          <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et
-          sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et
-          sem
-          eget, facilisis sodales sem.
+          <footer class="card-footer center">
+            <div class="card-content">
+              <p class="title">{{data.basalMetabolism}} kCal</p>
+            </div>
+          </footer>
         </div>
-      </article>
+      </div>
+      <div class="column">
+        <article class="message is-dark">
+          <div class="message-body">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis
+            placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et
+            dictum
+            <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu
+            et
+            sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula
+            et
+            sem
+            eget, facilisis sodales sem.
+          </div>
+        </article>
+      </div>
     </div>
   </div>
-</div>
-
-<div class="section center" style="justify-content:space-around">
-  <div class="columns">
-    <div class="column is-one-third">
-      <div class="card">
-        <div class="card-content has-background-success">
-          <p class="is-size-3">
-            Objective Needs
-          </p>
-          <p class="is-size-6">According to your objective : this is the one you want to follow</p>
-        </div>
-        <footer class="card-footer center">
-          <div class="card-content">
-            <p class="title"> {{data.objectiveNeed}} kCal </p>
+  <div class="section center" style="justify-content:space-around">
+    <div class="columns">
+      <div class="column is-one-third">
+        <div class="card">
+          <div class="card-content has-background-primary">
+            <p class="is-size-3">
+              Objective Needs
+            </p>
+            <p class="is-size-6">This is the one you want to follow</p>
           </div>
-        </footer>
-                <footer class="card-footer center">
-          <p class="card-footer-item"> {{diet.userProtein}} </p>
-          <p class="card-footer-item"> {{diet.userCarbs}} </p>
-          <p class="card-footer-item"> {{diet.userLipid}} </p>
-        </footer>
+          <footer class="card-footer center">
+            <div class="card-content">
+              <p class="title"> {{data.objectiveNeed}} kCal </p>
+            </div>
+          </footer>
+          <footer class="card-footer center">
+            <p class="card-footer-item"> Protein : &nbsp; <strong>{{diet.userProtein}}g</strong> </p>
+            <p class="card-footer-item"> Carbs : &nbsp; <strong>{{diet.userCarbs}}g</strong> </p>
+            <p class="card-footer-item"> Lipid : &nbsp; <strong> {{diet.userLipid}}g</strong> </p>
+          </footer>
+        </div>
+      </div>
+      <div class="column">
+        <article class="message is-dark">
+          <div class="message-body">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis
+            placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et
+            dictum
+            <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu
+            et
+            sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula
+            et
+            sem
+            eget, facilisis sodales sem.
+          </div>
+        </article>
       </div>
     </div>
-    <div class="column">
-      <article class="message is-dark">
-        <div class="message-body">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis
-          placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et
-          dictum
-          <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et
-          sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et
-          sem
-          eget, facilisis sodales sem.
-        </div>
-      </article>
-    </div>
   </div>
-</div>
 
-<div class="section center" style="justify-content:space-around">
-  <div class="columns">
-    <div class="column is-one-third">
-      <div class="card">
-        <div class="card-content has-background-light">
-          <p class="is-size-3">
-            Basal Metabolic Index
-          </p>
-          <p class="is-size-6">BMI ratio between your Height and Weight</p>
-        </div>
-        <footer class="card-footer center">
-          <div class="card-content">
-            <p class="title"> {{data.bmi}} </p>
+  <div class="section center" style="justify-content:space-around">
+    <div class="columns">
+      <div class="column is-one-third">
+        <div class="card">
+          <div class="card-content has-background-light">
+            <p class="is-size-3">
+              Basal Metabolic Index
+            </p>
+            <p class="is-size-6">BMI ratio between your Height and Weight</p>
           </div>
-        </footer>
+          <footer class="card-footer center">
+            <div class="card-content">
+              <p class="title"> {{data.bmi}} </p>
+            </div>
+          </footer>
+        </div>
+      </div>
+      <div class="column">
+        <article class="message is-dark">
+          <div class="message-body">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis
+            placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et
+            dictum
+            <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu
+            et
+            sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula
+            et
+            sem
+            eget, facilisis sodales sem.
+          </div>
+        </article>
       </div>
     </div>
-    <div class="column">
-      <article class="message is-dark">
-        <div class="message-body">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis
-          placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et
-          dictum
-          <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et
-          sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et
-          sem
-          eget, facilisis sodales sem.
-        </div>
-      </article>
-    </div>
   </div>
-</div>
 
-<div class="section center" style="justify-content:space-around">
-  <div class="columns">
-    <div class="column is-one-third">
-      <div class="card">
-        <div class="card-content has-background-light">
-          <p class="is-size-3">
-            Water Need
-          </p>
-          <p class="is-size-6">Coucou explain</p>
-        </div>
-        <footer class="card-footer center">
-          <div class="card-content">
-            <p class="title"> {{data.water}} ml </p>
+  <div class="section center" style="justify-content:space-around">
+    <div class="columns">
+      <div class="column is-one-third">
+        <div class="card">
+          <div class="card-content has-background-light">
+            <p class="is-size-3">
+              Water Need
+            </p>
+            <p class="is-size-6">Coucou explain</p>
           </div>
-        </footer>
+          <footer class="card-footer center">
+            <div class="card-content">
+              <p class="title"> {{data.water}} ml </p>
+            </div>
+          </footer>
+        </div>
+      </div>
+      <div class="column">
+        <article class="message is-dark">
+          <div class="message-body">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis
+            placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et
+            dictum
+            <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu
+            et
+            sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula
+            et
+            sem
+            eget, facilisis sodales sem.
+          </div>
+        </article>
       </div>
     </div>
-    <div class="column">
-      <article class="message is-dark">
-        <div class="message-body">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis
-          placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et
-          dictum
-          <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et
-          sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et
-          sem
-          eget, facilisis sodales sem.
-        </div>
-      </article>
-    </div>
   </div>
-</div>
-<div class="section center">
-  <a href="/recipes-list" class="button is-primary is-large">Continue to my dashboard</a>
+  <div class="section center">
+    <a href="/recipes-list" class="button is-primary is-large">Continue to my dashboard</a>
+  </div>
 </div>
