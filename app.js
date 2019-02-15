@@ -14,7 +14,7 @@ const MongoStore = require("connect-mongo")(session);
 const passport = require("passport");
 
 const UserData = require("./models/user-data-model.js")
-const getMacro = require("./lib/get-macro.js");
+const getMacro = require("./lib/getMacro.js");
 require("./config/passport-setup.js");
 
 mongoose
@@ -75,20 +75,26 @@ app.use((req, res, next) => {
   res.locals.messages = req.flash();
   res.locals.currentUser = req.user;
 
-  UserData.find({userId: {$eq: req.user._id}})
-    .sort({createdAt: -1})
-    .limit(1)
-    .populate("dietReference.data")
-    .then(userData => {
-      // res.json(userData);
-      const userMacros = getMacro(userData);
-      res.locals.userMacros = userMacros;
-      res.locals.userData = userData[0];
-      res.locals.dietData = userData[0].dietReference[0].data;
-      // req.userMacros = userMacros
-      next();
-    })
-    .catch(err => next(err));
+  if (!req.user) {
+    next();
+  } else {
+    UserData.find({userId: {$eq: req.user._id}})
+      .sort({createdAt: -1})
+      .limit(1)
+      .populate("dietReference.data")
+      .then(userData => {
+        // res.json(userData);
+        if (userData[0]) {
+          const userMacros = getMacro(userData);
+          res.locals.userMacros = userMacros;
+          res.locals.userData = userData[0];
+          res.locals.dietData = userData[0].dietReference[0].data;
+        }
+        // req.userMacros = userMacros
+        next();
+      })
+      .catch(err => next(err));
+  }
 });
 
 // default value for title local

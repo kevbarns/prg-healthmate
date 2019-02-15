@@ -4,16 +4,9 @@ const router = express.Router();
 const Recipes = require("../models/recipes-model.js");
 const User = require("../models/user-model.js");
 const UserData = require("../models/user-data-model.js");
-const getMacro = require("../lib/get-macro.js");
+const getMacro = require("../lib/getMacro.js");
 const findUserRecipes = require("../lib/findUserRecipes.js");
-
-function ensureAuthenticated(req, res, next) {
-  if (req.isAuthenticated()) {
-    return next();
-  } else {
-    res.redirect("/signup-login");
-  }
-}
+const ensureAuthenticated = require("../lib/ensureAuthenticated.js")
 
 router.use("/", (req, res, next) => {
   const userId = req.user._id;
