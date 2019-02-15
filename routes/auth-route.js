@@ -58,7 +58,7 @@ router.get(
   "/google/user-info",
   passport.authenticate("google", {
     failureRedirect: "/signup-login",
-    successReturnToOrRedirect: "/dashboard-index"
+    successReturnToOrRedirect: "/dashboard"
   })
 );
 
@@ -85,7 +85,7 @@ router.post("/process-login", (req, res, next) => {
 
       req.logIn(userDoc, () => {
         // req.flash ?
-        res.redirect("/dashboard-index");
+        res.redirect("/dashboard");
       });
     })
     .catch(err => next(err));
