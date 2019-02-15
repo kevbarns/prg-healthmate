@@ -51,7 +51,8 @@ a {
   color: red; }
 
 .form-page {
-  background-image: url("/images/HD-Fruit-Image-white.png"); }
+  background-color: white;
+  background-image: -webkit-linear-gradient(150deg, #50a0e7 50%, #f1eded 35%); }
 
 .cont {
   background-image: url("/images/Red-Apples-Fruits-white.png");

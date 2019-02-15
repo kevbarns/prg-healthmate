@@ -1,9 +1,59 @@
 <div class="recip-list">
-  <p class="title is-3 center recipe-list-title"><u>Here is our Delicious Recipes:</u></p>
+  {{!-- <p class="title is-3 center recipe-list-title"><u>Here is our Delicious Recipes:</u></p> --}}
 
-  {{#each recipesList}}
+  <div class="columns" style="flex-wrap: wrap !important;">
+    {{#each recipesList}}
+    <div class="column is-one-third">
+      <div class="card">
+        <div class="card-image">
+          <figure class="image">
+            <img src=" {{this.image}} " alt="" />
+          </figure>
+        </div>
+        <div class="card-content">
+          <div class="media">
+            <div class="media-content">
+              <p class="is-size-6"> <a href="/oneRecipe/{{this._id}}">{{this.title}}</a> </p>
+              <p class="is-size-7"> {{this.dishType}} </p>
+            </div>
+            {{!-- <div class="media-right">
+              <p class="is-size-7"> {{this.kCal}} kCal </p>
+            </div> --}}
+          </div>
+        </div>
+        <div class="card-content">
+          <div class="columns" style="display: flex;align-items: baseline;">
+            <div class="column">
+              <span class="icon is-large">
+                <i class="fas fa-stopwatch fa-2x"></i>
+              </span>
+              <p class="is-size-5 has-text-centered"> {{this.cookingTime}} min. </p>
+            </div>
+            <div class="column">
+              <span class="icon is-large">
+                <i class="fas fa-hourglass-half fa-2x"></i>
+              </span>
+              <p class="is-size-5 has-text-centered"> {{this.prepTime}} min. </p>
+            </div>
+            <div class="column">
+              <p class="is-size-4 has-text-centered"> {{this.kCal}} kCal </p>
+            </div>
+          </div>
 
-  <div class="mycard">
+
+        </div>
+        <footer class="card-footer">
+          <p class="card-footer-item has-background-primary"> P{{this.protein}} </p>
+          <p class="card-footer-item has-background-warning"> C{{this.carbs}} </p>
+          <p class="card-footer-item has-background-light"> L{{this.lipid}} </p>
+        </footer>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+
+
+  {{!-- <div class="mycard">
     <div class="columns">
       <div class="column center">
         <div class="card-image recipes-image">
@@ -34,6 +84,6 @@
         </div>
       </div>
     </div>
-  </div>
-  {{/each}}
+  </div> --}}
+
 </div>
