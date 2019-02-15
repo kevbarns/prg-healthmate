@@ -39,7 +39,7 @@ router.get("/auth/slack", passport.authenticate("slack"));
 router.get(
   "/slack/user-info",
   passport.authenticate("slack", {
-    successReturnToOrRedirect: "/dashboard-index",
+    successReturnToOrRedirect: "/dashboard",
     failureRedirect: "/signup-login"
   })
 );
