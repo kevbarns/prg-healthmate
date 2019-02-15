@@ -89,8 +89,8 @@ router.get("/favorite-recipe", ensureAuthenticated, (req, res, next) => {
   User.findById(req.user._id)
     .populate("favorites.recipes")
     .then(data => {
-      UserData.find({userId: {$eq: req.user._id}})
-        .sort({createdAt: -1})
+      UserData.find({ userId: { $eq: req.user._id } })
+        .sort({ createdAt: -1 })
         .limit(1)
         .populate("dietReference.data")
         .then(userData => {
@@ -114,7 +114,7 @@ router.get("/make-my-day", (req, res, next) => {
         .then(userData => {
           // call function
           const dailyRecipes = findUserRecipes(recipesList, userData);
-          Recipes.find({_id: {$in: dailyRecipes}})
+          Recipes.find({ _id: { $in: dailyRecipes } })
             .then(results => {
               // res.json(results);
               res.locals.recipes = results;
