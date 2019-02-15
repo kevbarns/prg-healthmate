@@ -4,6 +4,8 @@ const router = express.Router();
 const Recipes = require("../models/recipes-model.js");
 const User = require("../models/user-model.js");
 const UserData = require("../models/user-data-model.js");
+const getMacro = require("../lib/get-macro.js");
+const findUserRecipes = require("../lib/findUserRecipes.js");
 
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
@@ -19,7 +21,7 @@ router.use("/", (req, res, next) => {
   next();
 });
 
-router.get("/dashboard-index", ensureAuthenticated, (req, res, next) => {
+router.get("/dashboard", ensureAuthenticated, (req, res, next) => {
   res.render("dashboard/dashboard-index.hbs");
 });
 
@@ -94,8 +96,20 @@ router.get("/favorite-recipe", ensureAuthenticated, (req, res, next) => {
   User.findById(req.user._id)
     .populate("favorites.recipes")
     .then(data => {
-      res.locals.userFavorites = data.favorites;
-      res.render("dashboard/favorite-recipe.hbs");
+      UserData.find({userId: {$eq: req.user._id}})
+        .sort({createdAt: -1})
+        .limit(1)
+        .populate("dietReference.data")
+        .then(userData => {
+          // res.json(userData);
+          const userMacros = getMacro(userData);
+          res.locals.userMacros = userMacros;
+          res.locals.userData = userData[0];
+          res.locals.dietData = userData[0].dietReference[0].data;
+          res.locals.userFavorites = data.favorites;
+          res.render("dashboard/favorite-recipe.hbs");
+        })
+        .catch(err => next());
     });
 });
 
@@ -107,61 +121,17 @@ router.get("/make-my-day", (req, res, next) => {
         .then(userData => {
           // call function
           const dailyRecipes = findUserRecipes(recipesList, userData);
+          Recipes.find({_id: {$in: dailyRecipes}})
+            .then(results => {
+              // res.json(results);
+              res.locals.recipes = results;
+              res.render("dashboard/myrecipes.hbs");
+            })
+            .catch(err => next(err));
         })
-        .catch();
+        .catch(err => next(err));
     })
     .catch(err => next(err));
 });
 
-function getMacro(data) {
-  const protein = data[0].dietReference[0].data.protein,
-    lipid = data[0].dietReference[0].data.lipid,
-    carbs = data[0].dietReference[0].data.carbs,
-    objectiveNeed = data[0].objectiveNeed;
-
-  userProtein = Math.round((objectiveNeed * protein) / 100 / 4);
-  userLipid = Math.round((objectiveNeed * lipid) / 100 / 9);
-  userCarbs = Math.round((objectiveNeed * carbs) / 100 / 4);
-
-  return {userProtein, userLipid, userCarbs};
-}
-
-function findUserRecipes(recipesList, userData) {
-
-  // get the ratio of my macros
-  // calcul the ratio of all the recipes between protein to carbs
-  // recover the recipes that have the best protein ratio against carbs
-  let bProt = userData.macros[0].protein,
-    bCarbs = userData.macros[0].carbs,
-    bLipid = userData.macros[0].lipid;
-  console.log("Starting Macros : " + bProt, bCarbs, bLipid);
-
-  // Shuffle recipesList
-  recipesList.sort(function() {
-    return 0.5 - Math.random();
-  });
-
-  let matchedRecipes = [];
-  recipesList.forEach(e => {
-    const recipeProt = e.protein,
-      recipeCarbs = e.carbs,
-      recipeLipid = e.lipid;
-    if (bProt >= recipeProt && bCarbs >= recipeCarbs && bLipid >= recipeLipid) {
-      bProt -= recipeProt;
-      bCarbs -= recipeCarbs;
-      bLipid -= recipeLipid;
-      console.log("One interation" + bProt, bCarbs, bLipid);
-      matchedRecipes.push(e._id);
-      console.log(matchedRecipes);
-    }
-  });
-  // foreach recipes
-  // while (userProtein <= recipesList.protein)
-  // if (userCarbs < recipesList.Carbs)
-  // if (userLipid < recipesList.Lipid)
-  // push(recipesList._id)
-  // loop over the recipes
-  // less than protein
-  // if time I find a recipe, i substract to the macros and push the recipes ID into an array
-}
 module.exports = router;

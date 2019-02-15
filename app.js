@@ -13,6 +13,8 @@ const flash = require("connect-flash");
 const MongoStore = require("connect-mongo")(session);
 const passport = require("passport");
 
+const UserData = require("./models/user-data-model.js")
+const getMacro = require("./lib/get-macro.js");
 require("./config/passport-setup.js");
 
 mongoose
@@ -72,7 +74,21 @@ app.use(flash());
 app.use((req, res, next) => {
   res.locals.messages = req.flash();
   res.locals.currentUser = req.user;
-  next();
+
+  UserData.find({userId: {$eq: req.user._id}})
+    .sort({createdAt: -1})
+    .limit(1)
+    .populate("dietReference.data")
+    .then(userData => {
+      // res.json(userData);
+      const userMacros = getMacro(userData);
+      res.locals.userMacros = userMacros;
+      res.locals.userData = userData[0];
+      res.locals.dietData = userData[0].dietReference[0].data;
+      // req.userMacros = userMacros
+      next();
+    })
+    .catch(err => next(err));
 });
 
 // default value for title local
@@ -85,6 +101,6 @@ const auth = require("./routes/auth-route.js");
 app.use("/", auth);
 
 const dashboard = require("./routes/dashboard-route");
-app.use("/", dashboard);
+app.use("/", dashboard,)
 
 module.exports = app;
