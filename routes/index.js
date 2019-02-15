@@ -3,7 +3,7 @@ const router = express.Router();
 const UserProfile = require("../models/user-profile-model.js");
 const UserData = require("../models/user-data-model.js");
 const dietReference = require("../models/diet-data-model.js");
-const getMacro = require("../lib/get-macro.js");
+const getMacro = require("../lib/getMacro.js");
 const generalCalcul = require("../lib/generalCalcul.js");
 
 router.get("/", (req, res, next) => {
@@ -65,18 +65,18 @@ router.get("/get-started-final", (req, res, next) => {
     .populate("dietReference.data")
     .then(data => {
       // res.json(data);
-      const macroz = getMacro(data);
-      const protein = macroz.userProtein;
-      const carbs = macroz.userCarbs;
-      const lipid = macroz.userLipid;
-      console.log(macroz.userProtein);
+      const macros = getMacro(data);
+      const protein = macros.userProtein;
+      const carbs = macros.userCarbs;
+      const lipid = macros.userLipid;
+      console.log(macros.userProtein);
       UserData.findOneAndUpdate(
         {userId: {$eq: userId}},
         {$set: {macros: {protein, carbs, lipid}}}
       )
         .then(() => {
           res.locals.data = data[0];
-          res.locals.diet = macroz;
+          res.locals.diet = macros;
           res.render("steps-final.hbs");
         })
         .catch();
