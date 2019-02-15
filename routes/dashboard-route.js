@@ -27,7 +27,7 @@ router.get("/recipes-list", ensureAuthenticated, (req, res, next) => {
   const userId = req.user._id;
   Recipes.find()
     .then(recipesResult => {
-      UserData.find({userId: {$eq: userId}})
+      UserData.find({ userId: { $eq: userId } })
         .populate("dietReference.data")
         .then(userData => {
           // res.json(userData);
@@ -44,7 +44,7 @@ router.get("/recipes-list", ensureAuthenticated, (req, res, next) => {
 });
 
 router.get("/oneRecipe/:recipeId", ensureAuthenticated, (req, res, next) => {
-  const {recipeId} = req.params;
+  const { recipeId } = req.params;
 
   Recipes.findById(recipeId)
     .then(recipeData => {
@@ -55,7 +55,7 @@ router.get("/oneRecipe/:recipeId", ensureAuthenticated, (req, res, next) => {
 });
 
 router.get("/add-fav-recipe/:recipeId", (req, res, next) => {
-  const {recipeId} = req.params;
+  const { recipeId } = req.params;
 
   const isFavorited = req.user.favorites.some(oneId => {
     return oneId.recipes.toString() === recipeId.toString();
@@ -66,8 +66,8 @@ router.get("/add-fav-recipe/:recipeId", (req, res, next) => {
   } else {
     User.findByIdAndUpdate(
       req.user._id,
-      {$push: {favorites: {recipes: recipeId}}},
-      {runValidators: true}
+      { $push: { favorites: { recipes: recipeId } } },
+      { runValidators: true }
     )
       .then(data => {
         res.redirect(`/oneRecipe/${recipeId}`);
@@ -77,12 +77,12 @@ router.get("/add-fav-recipe/:recipeId", (req, res, next) => {
 });
 
 router.get("/delete-fav-recipe/:recipeId", (req, res, next) => {
-  const {recipeId} = req.params;
+  const { recipeId } = req.params;
 
   User.findByIdAndUpdate(
     req.user._id,
-    {$pull: {favorites: {recipes: recipeId}}},
-    {runValidators: true}
+    { $pull: { favorites: { recipes: recipeId } } },
+    { runValidators: true }
   )
     .then(data => {
       res.redirect("/favorite-recipe");
@@ -103,7 +103,7 @@ router.get("/make-my-day", (req, res, next) => {
   const userId = req.user._id;
   Recipes.find()
     .then(recipesList => {
-      UserData.findOne({userId: {$eq: userId}})
+      UserData.findOne({ userId: { $eq: userId } })
         .then(userData => {
           // call function
           const dailyRecipes = findUserRecipes(recipesList, userData);
@@ -123,11 +123,10 @@ function getMacro(data) {
   userLipid = Math.round((objectiveNeed * lipid) / 100 / 9);
   userCarbs = Math.round((objectiveNeed * carbs) / 100 / 4);
 
-  return {userProtein, userLipid, userCarbs};
+  return { userProtein, userLipid, userCarbs };
 }
 
 function findUserRecipes(recipesList, userData) {
-
   // get the ratio of my macros
   // calcul the ratio of all the recipes between protein to carbs
   // recover the recipes that have the best protein ratio against carbs
