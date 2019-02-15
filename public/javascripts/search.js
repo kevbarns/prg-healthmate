@@ -30,9 +30,9 @@ search.addWidget(
             <img src=" {{image}} " alt="" />
           </figure>
         </div>
-        <div class="card-content">
-          <div class="media">
-            <div class="media-content">
+        <div class="">
+          <div class="">
+            <div class="">
               <p class="is-size-6"> <a href="/oneRecipe/{{_id}}">{{title}}</a> </p>
               <p class="is-size-7"> {{dishType}} </p>
 
@@ -40,7 +40,7 @@ search.addWidget(
         </div>
         <div class="card-content">
           <div class="columns" style="display: flex;align-items: baseline;">
-            <div class="column">
+            <div class="column is-one-third">
               <span class="icon is-large">
                 <i class="fas fa-stopwatch fa-2x"></i>
               </span>
@@ -56,8 +56,6 @@ search.addWidget(
               <p class="is-size-4 has-text-centered"> {{kCal}} kCal </p>
             </div>
           </div>
-
-
         </div>
         <footer class="card-footer">
           <p class="card-footer-item has-background-primary"> P{{protein}} </p>

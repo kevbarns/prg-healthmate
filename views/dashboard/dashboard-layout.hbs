@@ -6,12 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{title}}</title>
-  <link rel="stylesheet" href="/stylesheets/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
   <link rel="stylesheet" href="/stylesheets/bulma-dashboard.min.css">
   <link rel="stylesheet" href="/stylesheets/bulma-steps.min.css">
   <link rel="stylesheet" href="/stylesheets/bulma-divider.min.css">
-  <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.1.0/themes/algolia-min.css">
+  <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 
 <body>
@@ -25,94 +25,55 @@
           <li><a href="/recipes-list">Recipes</a></li>
           <li><a href='/make-my-day'>Make my day</a></li>
           <li><a href="/favorite-recipe">Favorite Recipes</a></li>
+          <li><a href="/dashboard">Algolia Search</a></li>
         </ul>
-        {{!-- <p class="menu-label">
-          Title
-        </p>
-        <ul class="menu-list">
-          <li><a>Menu</a></li>
-          <li>
-            <a class="is-active">Menu active</a>
-            <ul>
-              <li><a>Submenu 1</a></li>
-            </ul>
-          </li>
-        </ul> --}}
       </aside>
     </div>
 
     <!-- main section -->
     <div class="dashboard-main is-scrollable">
-      {{!-- <nav class="navbar is-fixed-top is-dark">
-      <div class="navbar-menu">
-        <div class="navbar-end">
-          <span class="navbar-item">
-            Fixed-top navbar
-          </span>
-        </div>
-      </div>
-    </nav> --}}
-
       <section class="section">
-        {{!-- <p class="title is-size-2 is-spaced">
-        My Dashboard
-      </p> --}}
 
         {{{body}}}
 
-        <p class="subtitle is-size-3">
-          {{!--  --}}
-        </p>
-
-        <section class="content is-medium">
-          {{!--  --}}
-        </section>
       </section>
-
-      <!-- the footer will take up all unused space at the bottom -->
-      {{!-- <footer class="footer has-background-black has-text-white">
-      <p class="is-size-2">
-        Footer
-      </p>
-
-      <p>
-        Notice that this entire space is filled up.
-      </p>
-    </footer> --}}
     </div>
 
     <!-- right panel -->
     <div class="dashboard-panel is-small is-scrollable is-hidden-mobile">
-      <div class="center">
-        <figure class="image">
-          <img class="image" src="{{currentUser.image}}">
-        </figure>
-      </div>
-      <br>
-      <div class="center">
-        <p class="title is-5">Hello {{currentUser.fullName}}</p>
+      <div class="content">
+        <div class="center">
+          <figure class="image">
+            <img class="image" src="{{currentUser.image}}">
+          </figure>
+        </div>
+        <hr class="has-background-grey" />
+        <div class="center">
+          <p class="title is-5">Hello {{currentUser.fullName}}</p>
+        </div>
       </div>
 
-      <hr class="has-background-grey" />
-      <div class="content">
+
+      <div class="content" style="padding: 10px;background-color: white;margin-top: 10px;border-radius: 3px;">
         <p class="is-size-6"> BMR : {{userData.basalMetabolism}} kCal </p>
         <p class="is-size-6"> Objective : {{userData.objectiveNeed}} kCal </p>
-        <p class="is-size-6"> Daily Macros : {{dietData.name}}
-          <ul>
-            <li>Protein : {{userMacros.userProtein}}g </li>
-            <li>Carbs : {{userMacros.userCarbs}}g</li>
-            <li>Lipid : {{userMacros.userLipid}}g</li>
-          </ul>
+          <footer class="">
+            <p class="card-footer-item has-background-primary"> Protein : {{userMacros.userProtein}}g </p>
+            <p class="card-footer-item has-background-warning"> Carbs : {{userMacros.userCarbs}}g </p>
+            <p class="card-footer-item has-background-light"> Lipids : {{userMacros.userLipid}}g </p>
+            <p class="card-footer-item has-background-light"> Water : {{userData.water}} ml </p>
+          </footer>
         </p>
-        <p class="is-size-6">Water : {{userData.water}} ml </p>
-        <p class="is-size-6"> </p>
       </div>
-      <br />
-      <br><br> <a class="button is-dark is-small" href="/logout">Log Out</a>
+      <a class="button is-dark" href="/logout">Log Out</a>
     </div>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/algoliasearch@3.32.0/dist/algoliasearchLite.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@3.1.0/dist/instantsearch.production.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
   <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
   <script src="/javascripts/script.js"></script>
+  <script src="/javascripts/search.js"></script>
 </body>
 
 </html>

@@ -1,18 +1,15 @@
-<div class="fav-recip">
-  <p class="title is-3 recipe-fav-title"><u>Your Favorites Recipes:</u></p>
-
-  {{#each userFavorites}}
-  <div class="content">
-    <div class="card">
-      <ul>
-        <li>
-          <p class="title is-4"><a class="fav-item" href="/oneRecipe/{{this.recipes._id}}">{{this.recipes.title}}</a>
-            <a class=" bin-icon" href="/delete-fav-recipe/{{this.recipes._id}}">🗑</a>
-          </p>
-        </li>
-      </ul>
-    </div>
+<p class="title is-3"><u>Your Favorites Recipes:</u></p>
+{{#each userFavorites}}
+<div class="content">
+  <div class="card">
+    <a class="fav-item" href="/oneRecipe/{{this.recipes._id}}">
+      <div class="card-content" style="display: flex;justify-content: space-between;align-items: baseline;">
+        <p class="title is-4">
+          {{this.recipes.title}}
+        </p>
+        <a class=" bin-icon" href="/delete-fav-recipe/{{this.recipes._id}}">🗑</a>
+      </div>
+    </a>
   </div>
-  {{/each}}
-
 </div>
+{{/each}}
