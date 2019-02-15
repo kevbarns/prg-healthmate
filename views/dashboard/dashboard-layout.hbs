@@ -6,12 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{title}}</title>
-  <link rel="stylesheet" href="/stylesheets/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
   <link rel="stylesheet" href="/stylesheets/bulma-dashboard.min.css">
   <link rel="stylesheet" href="/stylesheets/bulma-steps.min.css">
   <link rel="stylesheet" href="/stylesheets/bulma-divider.min.css">
-  <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.1.0/themes/algolia-min.css">
+  <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 
 <body>
@@ -111,8 +111,12 @@
       <br><br> <a class="button is-dark is-small" href="/logout">Log Out</a>
     </div>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/algoliasearch@3.32.0/dist/algoliasearchLite.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@3.1.0/dist/instantsearch.production.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
   <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
   <script src="/javascripts/script.js"></script>
+  <script src="/javascripts/search.js"></script>
 </body>
 
 </html>

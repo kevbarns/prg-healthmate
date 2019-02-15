@@ -1,14 +1,8 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
-label {
-  display: block;
-}
-
-a {
-  color: #00b7ff;
+// ALGOLIA OVERRIDE
+.ais-Hits-item{
+  width: calc(33% - 1rem) !important;
+  background-color: white;
+  box-shadow: none;
 }
 
 .hero-body {
