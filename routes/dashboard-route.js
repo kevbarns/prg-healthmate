@@ -96,8 +96,8 @@ router.get("/favorite-recipe", ensureAuthenticated, (req, res, next) => {
   User.findById(req.user._id)
     .populate("favorites.recipes")
     .then(data => {
-      UserData.find({userId: {$eq: req.user._id}})
-        .sort({createdAt: -1})
+      UserData.find({ userId: { $eq: req.user._id } })
+        .sort({ createdAt: -1 })
         .limit(1)
         .populate("dietReference.data")
         .then(userData => {
@@ -121,7 +121,7 @@ router.get("/make-my-day", (req, res, next) => {
         .then(userData => {
           // call function
           const dailyRecipes = findUserRecipes(recipesList, userData);
-          Recipes.find({_id: {$in: dailyRecipes}})
+          Recipes.find({ _id: { $in: dailyRecipes } })
             .then(results => {
               // res.json(results);
               res.locals.recipes = results;
@@ -134,57 +134,4 @@ router.get("/make-my-day", (req, res, next) => {
     .catch(err => next(err));
 });
 
-<<<<<<< HEAD
-function getMacro(data) {
-  const protein = data[0].dietReference[0].data.protein,
-    lipid = data[0].dietReference[0].data.lipid,
-    carbs = data[0].dietReference[0].data.carbs,
-    objectiveNeed = data[0].objectiveNeed;
-
-  userProtein = Math.round((objectiveNeed * protein) / 100 / 4);
-  userLipid = Math.round((objectiveNeed * lipid) / 100 / 9);
-  userCarbs = Math.round((objectiveNeed * carbs) / 100 / 4);
-
-  return { userProtein, userLipid, userCarbs };
-}
-
-function findUserRecipes(recipesList, userData) {
-  // get the ratio of my macros
-  // calcul the ratio of all the recipes between protein to carbs
-  // recover the recipes that have the best protein ratio against carbs
-  let bProt = userData.macros[0].protein,
-    bCarbs = userData.macros[0].carbs,
-    bLipid = userData.macros[0].lipid;
-  console.log("Starting Macros : " + bProt, bCarbs, bLipid);
-
-  // Shuffle recipesList
-  recipesList.sort(function() {
-    return 0.5 - Math.random();
-  });
-
-  let matchedRecipes = [];
-  recipesList.forEach(e => {
-    const recipeProt = e.protein,
-      recipeCarbs = e.carbs,
-      recipeLipid = e.lipid;
-    if (bProt >= recipeProt && bCarbs >= recipeCarbs && bLipid >= recipeLipid) {
-      bProt -= recipeProt;
-      bCarbs -= recipeCarbs;
-      bLipid -= recipeLipid;
-      console.log("One interation" + bProt, bCarbs, bLipid);
-      matchedRecipes.push(e._id);
-      console.log(matchedRecipes);
-    }
-  });
-  // foreach recipes
-  // while (userProtein <= recipesList.protein)
-  // if (userCarbs < recipesList.Carbs)
-  // if (userLipid < recipesList.Lipid)
-  // push(recipesList._id)
-  // loop over the recipes
-  // less than protein
-  // if time I find a recipe, i substract to the macros and push the recipes ID into an array
-}
-=======
->>>>>>> b735a1e6251d0e03d184b2c7f5a45fdd6c2271e5
 module.exports = router;
