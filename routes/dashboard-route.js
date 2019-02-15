@@ -22,7 +22,7 @@ router.get("/recipes-list", ensureAuthenticated, (req, res, next) => {
   const userId = req.user._id;
   Recipes.find()
     .then(recipesResult => {
-      UserData.find({userId: {$eq: userId}})
+      UserData.find({ userId: { $eq: userId } })
         .populate("dietReference.data")
         .then(userData => {
           // res.json(userData);
@@ -39,7 +39,7 @@ router.get("/recipes-list", ensureAuthenticated, (req, res, next) => {
 });
 
 router.get("/oneRecipe/:recipeId", ensureAuthenticated, (req, res, next) => {
-  const {recipeId} = req.params;
+  const { recipeId } = req.params;
 
   Recipes.findById(recipeId)
     .then(recipeData => {
@@ -50,7 +50,7 @@ router.get("/oneRecipe/:recipeId", ensureAuthenticated, (req, res, next) => {
 });
 
 router.get("/add-fav-recipe/:recipeId", (req, res, next) => {
-  const {recipeId} = req.params;
+  const { recipeId } = req.params;
 
   const isFavorited = req.user.favorites.some(oneId => {
     return oneId.recipes.toString() === recipeId.toString();
@@ -61,8 +61,8 @@ router.get("/add-fav-recipe/:recipeId", (req, res, next) => {
   } else {
     User.findByIdAndUpdate(
       req.user._id,
-      {$push: {favorites: {recipes: recipeId}}},
-      {runValidators: true}
+      { $push: { favorites: { recipes: recipeId } } },
+      { runValidators: true }
     )
       .then(data => {
         res.redirect(`/oneRecipe/${recipeId}`);
@@ -72,12 +72,12 @@ router.get("/add-fav-recipe/:recipeId", (req, res, next) => {
 });
 
 router.get("/delete-fav-recipe/:recipeId", (req, res, next) => {
-  const {recipeId} = req.params;
+  const { recipeId } = req.params;
 
   User.findByIdAndUpdate(
     req.user._id,
-    {$pull: {favorites: {recipes: recipeId}}},
-    {runValidators: true}
+    { $pull: { favorites: { recipes: recipeId } } },
+    { runValidators: true }
   )
     .then(data => {
       res.redirect("/favorite-recipe");
@@ -110,7 +110,7 @@ router.get("/make-my-day", (req, res, next) => {
   const userId = req.user._id;
   Recipes.find()
     .then(recipesList => {
-      UserData.findOne({userId: {$eq: userId}})
+      UserData.findOne({ userId: { $eq: userId } })
         .then(userData => {
           // call function
           const dailyRecipes = findUserRecipes(recipesList, userData);
@@ -127,4 +127,57 @@ router.get("/make-my-day", (req, res, next) => {
     .catch(err => next(err));
 });
 
+<<<<<<< HEAD
+function getMacro(data) {
+  const protein = data[0].dietReference[0].data.protein,
+    lipid = data[0].dietReference[0].data.lipid,
+    carbs = data[0].dietReference[0].data.carbs,
+    objectiveNeed = data[0].objectiveNeed;
+
+  userProtein = Math.round((objectiveNeed * protein) / 100 / 4);
+  userLipid = Math.round((objectiveNeed * lipid) / 100 / 9);
+  userCarbs = Math.round((objectiveNeed * carbs) / 100 / 4);
+
+  return { userProtein, userLipid, userCarbs };
+}
+
+function findUserRecipes(recipesList, userData) {
+  // get the ratio of my macros
+  // calcul the ratio of all the recipes between protein to carbs
+  // recover the recipes that have the best protein ratio against carbs
+  let bProt = userData.macros[0].protein,
+    bCarbs = userData.macros[0].carbs,
+    bLipid = userData.macros[0].lipid;
+  console.log("Starting Macros : " + bProt, bCarbs, bLipid);
+
+  // Shuffle recipesList
+  recipesList.sort(function() {
+    return 0.5 - Math.random();
+  });
+
+  let matchedRecipes = [];
+  recipesList.forEach(e => {
+    const recipeProt = e.protein,
+      recipeCarbs = e.carbs,
+      recipeLipid = e.lipid;
+    if (bProt >= recipeProt && bCarbs >= recipeCarbs && bLipid >= recipeLipid) {
+      bProt -= recipeProt;
+      bCarbs -= recipeCarbs;
+      bLipid -= recipeLipid;
+      console.log("One interation" + bProt, bCarbs, bLipid);
+      matchedRecipes.push(e._id);
+      console.log(matchedRecipes);
+    }
+  });
+  // foreach recipes
+  // while (userProtein <= recipesList.protein)
+  // if (userCarbs < recipesList.Carbs)
+  // if (userLipid < recipesList.Lipid)
+  // push(recipesList._id)
+  // loop over the recipes
+  // less than protein
+  // if time I find a recipe, i substract to the macros and push the recipes ID into an array
+}
+=======
+>>>>>>> b735a1e6251d0e03d184b2c7f5a45fdd6c2271e5
 module.exports = router;

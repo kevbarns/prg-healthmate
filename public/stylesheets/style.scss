@@ -69,7 +69,11 @@ a {
 
 .form-page {
   background-color: rgb(255, 255, 255);
-  background-image: -webkit-linear-gradient(150deg, rgb(80, 160, 231) 50%, rgb(241, 237, 237) 35%);
+  background-image: -webkit-linear-gradient(
+    150deg,
+    rgb(80, 160, 231) 50%,
+    rgb(241, 237, 237) 35%
+  );
 }
 
 .cont {
