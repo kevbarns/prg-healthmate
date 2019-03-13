@@ -15,4 +15,5 @@ With your height, weight, age and body objectives, the application reveals sever
 ## How to use 
 1. download the source
 2. inside the folder, run the commande **npm install**
-3. Start the server using **npm run dev**
+3. run the seed using **node /bin/seed.js** file to get the basic data **(otherwize it won't work!)**
+4. Start the server using **npm run dev**
