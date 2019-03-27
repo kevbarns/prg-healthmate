@@ -1,5 +1,5 @@
 // ALGOLIA OVERRIDE
-.ais-Hits-item{
+.ais-Hits-item {
   width: calc(33% - 1rem) !important;
   background-color: white;
   box-shadow: none;
@@ -106,6 +106,10 @@
 
 .fav-item {
   color: black;
+}
+
+.algolia-logo {
+  max-height: 25px;
 }
 
 // HELPERS

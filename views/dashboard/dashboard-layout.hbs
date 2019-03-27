@@ -44,7 +44,7 @@
       <div class="content">
         <div class="center">
           <figure class="image">
-            <img class="image" src="{{currentUser.image}}">
+            <img class="image is-rounded" src="{{currentUser.image}}">
           </figure>
         </div>
         <hr class="has-background-grey" />
@@ -57,12 +57,12 @@
       <div class="content" style="padding: 10px;background-color: white;margin-top: 10px;border-radius: 3px;">
         <p class="is-size-6"> BMR : {{userData.basalMetabolism}} kCal </p>
         <p class="is-size-6"> Objective : {{userData.objectiveNeed}} kCal </p>
-          <footer class="">
-            <p class="card-footer-item has-background-primary"> Protein : {{userMacros.userProtein}}g </p>
-            <p class="card-footer-item has-background-warning"> Carbs : {{userMacros.userCarbs}}g </p>
-            <p class="card-footer-item has-background-light"> Lipids : {{userMacros.userLipid}}g </p>
-            <p class="card-footer-item has-background-light"> Water : {{userData.water}} ml </p>
-          </footer>
+        <footer class="">
+          <p class="card-footer-item has-background-primary"> Protein : {{userMacros.userProtein}}g </p>
+          <p class="card-footer-item has-background-warning"> Carbs : {{userMacros.userCarbs}}g </p>
+          <p class="card-footer-item has-background-light"> Lipids : {{userMacros.userLipid}}g </p>
+          <p class="card-footer-item has-background-light"> Water : {{userData.water}} ml </p>
+        </footer>
         </p>
       </div>
       <a class="button is-dark" href="/logout">Log Out</a>

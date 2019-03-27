@@ -78,6 +78,9 @@
 .fav-item {
   color: black; }
 
+.algolia-logo {
+  max-height: 25px; }
+
 .center,
 .center-column,
 .top,
